@@ -3,9 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShopManagement", "ShopManagement", "{B8178FC2-C292-458D-8B0B-C07EE6D0FAEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopManagement.Domain", "ShopManagement.Domain\ShopManagement.Domain.csproj", "{8961251B-A300-4DCB-A9CD-B852899DCAE3}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8961251B-A300-4DCB-A9CD-B852899DCAE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8961251B-A300-4DCB-A9CD-B852899DCAE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8961251B-A300-4DCB-A9CD-B852899DCAE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8961251B-A300-4DCB-A9CD-B852899DCAE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8961251B-A300-4DCB-A9CD-B852899DCAE3} = {B8178FC2-C292-458D-8B0B-C07EE6D0FAEB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2E8D8FDE-A524-42FE-8B25-E7050EC7D799}
