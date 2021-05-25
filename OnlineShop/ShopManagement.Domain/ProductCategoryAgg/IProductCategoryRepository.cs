@@ -13,6 +13,6 @@ namespace ShopManagement.Domain.ProductCategoryAgg
         void Save();
         bool Exists(Expression<Func<ProductCategory, bool>> expression);
         EditProductCategory GetDetails(long id);
-        List<ProductCategoryViewModel> Search(ProductCategorySearchModel seraModel);
+        List<ProductCategoryViewModel> Search(ProductCategorySearchModel searchModel);
     }
 }
