@@ -2,43 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using _0_Framework.Infrastructure;
 using ShopManagement.Application.Contracts.ProductCategory;
 using ShopManagement.Domain.ProductCategoryAgg;
 
 namespace ShopManagement.Infrastructure.EfCore.Repositories
 {
-    public class ProductCategoryRepository : IProductCategoryRepository
+    public class ProductCategoryRepository : BaseRepsitory<long,ProductCategory>, IProductCategoryRepository
     {
         private readonly ShopContext _context;
 
-        public ProductCategoryRepository(ShopContext context)
+        public ProductCategoryRepository(ShopContext context) :base(context)
         {
             _context = context;
-        }
-
-        public void Create(ProductCategory productCategory)
-        {
-            _context.ProductCategories.Add(productCategory);
-        }
-
-        public ProductCategory Get(long id)
-        {
-            return _context.ProductCategories.Find(id);
-        }
-
-        public List<ProductCategory> GetAll()
-        {
-            return _context.ProductCategories.ToList();
-        }
-
-        public void Save()
-        {
-            _context.SaveChanges();
-        }
-
-        public bool Exists(Expression<Func<ProductCategory, bool>> expression)
-        {
-            return _context.ProductCategories.Any(expression);
         }
 
         public EditProductCategory GetDetails(long id)
