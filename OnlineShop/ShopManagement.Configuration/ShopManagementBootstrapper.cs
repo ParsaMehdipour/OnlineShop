@@ -11,9 +11,9 @@ using ShopManagement.Infrastructure.EfCore.Repositories;
 
 namespace ShopManagement.Configuration
 {
-    public static class ShopManagementBootstrapper
+    public class ShopManagementBootstrapper
     {
-        public static void Configure(this IServiceCollection services,string connectionString)
+        public static void Configure(IServiceCollection services,string connectionString)
         {
             services.AddTransient<IProductCategoryApplication, ProductCategoryApplication>();
             services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
