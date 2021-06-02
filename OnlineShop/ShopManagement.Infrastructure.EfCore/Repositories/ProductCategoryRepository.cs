@@ -43,7 +43,7 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
                 CreationDate = x.CreationDate.ToString()
             });
 
-            if (string.IsNullOrWhiteSpace(searchModel.Name))
+            if (!string.IsNullOrWhiteSpace(searchModel.Name))
                 query = query.Where(x => x.Name == searchModel.Name);
 
             return query.OrderByDescending(x => x.Id).ToList();
