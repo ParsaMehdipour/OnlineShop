@@ -23,5 +23,10 @@ namespace ServiceHost.Areas.AdminPanel.Pages.Shop.ProductCategories
         {
             ProductCategories = _application.Search(searchModel);
         }
+
+        public IActionResult OnGetCreate()
+        {
+            return Partial("./Create", new CreateProductCategory());
+        }
     }
 }
