@@ -30,7 +30,7 @@ namespace ShopManagement.Application.ProductCategory
 
             _repository.Create(productCategory);
 
-            //_repository.Save();
+            _repository.SaveChanges();
 
             return result.Succedded();
         }
@@ -52,7 +52,7 @@ namespace ShopManagement.Application.ProductCategory
             productCategory.Edit(command.Name, command.Description, command.Picture
                 ,command.PictureAlt, command.PictureTitle, command.KeyWords, command.MetaDescription, slug);
 
-            //_repository.Save();
+            _repository.SaveChanges();
 
             return result.Succedded();
         }
