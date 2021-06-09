@@ -21,7 +21,7 @@ namespace ShopManagement.Application.ProductCategory
             var result = new OperationResult();
 
             if (_repository.Exists(x => x.Name == command.Name))
-                return result.Failed("امکان ایجاد کاربر تکراری وجود ندارد. لظفا دوباره تلاش کنید");
+                return result.Failed(ApplicationMessages.DuplicatedRecord);
 
             var slug = command.Slug.Slugify();
 
@@ -42,7 +42,7 @@ namespace ShopManagement.Application.ProductCategory
             var productCategory = _repository.GetById(command.Id);
 
             if (productCategory == null)
-                return result.Failed("رکورد با اطلاعات درخواست داده شده وجود ندارد. لطفا دوباره تلاش کنید");
+                return result.Failed(ApplicationMessages.RecordNotFound);
 
             if (_repository.Exists(x => x.Name == command.Name && x.Id != command.Id))
                 return result.Failed();
