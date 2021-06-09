@@ -9,7 +9,7 @@ namespace ShopManagement.Domain.ProductAgg
         public string Name { get; private set; }
         public string Code { get; private set; }
         public double UnitPrice { get; private set; }
-        public bool IsInStock { get; private set; }
+        public bool InStock { get; private set; }
         public string ShortDescription { get; private set; }
         public string Description { get; private set; }
         public string Picture { get; private set; }
@@ -38,7 +38,7 @@ namespace ShopManagement.Domain.ProductAgg
             Keywords = keywords;
             MetaDescription = metaDescription;
             CategoryId = categoryId;
-            IsInStock = true;
+            InStock = true;
         }
 
         public void Edit(string name, string code, double unitPrice,
@@ -60,14 +60,14 @@ namespace ShopManagement.Domain.ProductAgg
             CategoryId = categoryId;
         }
 
-        public void InStock()
+        public void IsInStock()
         {
-            IsInStock = true;
+            InStock = true;
         }
 
         public void NotInStock()
         {
-            IsInStock = false;  
+            InStock = false;  
         }
     }
 }
