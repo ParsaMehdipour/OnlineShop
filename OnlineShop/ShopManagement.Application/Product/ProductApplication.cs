@@ -8,7 +8,7 @@ using ShopManagement.Domain.ProductAgg;
 
 namespace ShopManagement.Application.Product
 {
-    class ProductApplication : IProductApplication
+    public class ProductApplication : IProductApplication
     {
         private readonly IProductRepository _repository;
 
