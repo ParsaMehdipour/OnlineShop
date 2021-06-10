@@ -1,4 +1,7 @@
-﻿using _0_Framework.Domain;
+﻿using System.Collections.Generic;
+using _0_Framework.Domain;
+using Microsoft.VisualBasic.CompilerServices;
+using ShopManagement.Domain.ProductAgg;
 
 namespace ShopManagement.Domain.ProductCategoryAgg
 {
@@ -12,6 +15,12 @@ namespace ShopManagement.Domain.ProductCategoryAgg
         public string KeyWords { get; private set; }
         public string MetaDescription { get; private set; }
         public string Slug { get; private set; }
+        public List<Product> Products { get; private set; }
+
+        public ProductCategory()
+        {
+            Products = new List<Product>();
+        }
 
         //Making A New Product Category
         public ProductCategory(string name, string description, string picture, string pictureAlt,
