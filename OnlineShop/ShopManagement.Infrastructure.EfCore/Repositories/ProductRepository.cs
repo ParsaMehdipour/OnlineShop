@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using _0_Framework.Infrastructure;
@@ -46,7 +47,10 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
                     Id = x.Id,
                     Name = x.Name,
                     Category = x.ProductCategory.Name,
-                    Code = x.Code
+                    Code = x.Code,
+                    CreationDate = x.CreationDate.ToString(CultureInfo.InvariantCulture),
+                    Picture = x.Picture,
+                    UnitPrice = x.UnitPrice
                 });
 
             if (!string.IsNullOrWhiteSpace(searchModel.Name))
