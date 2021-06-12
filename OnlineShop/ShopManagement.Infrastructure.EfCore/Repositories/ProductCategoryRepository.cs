@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using _0_Framework.Infrastructure;
@@ -15,6 +16,15 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
         public ProductCategoryRepository(ShopContext context) :base(context)
         {
             _context = context;
+        }
+
+        public List<ProductCategoryViewModel> GetProductCategories()
+        {
+            return _context.ProductCategories.Select(x => new ProductCategoryViewModel()
+            {
+                Id = x.Id,
+                Name = x.Name
+            }).ToList();
         }
 
         public EditProductCategory GetDetails(long id)
@@ -40,7 +50,7 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
                 Id = x.Id,
                 Name = x.Name,
                 Picture = x.Picture,
-                CreationDate = x.CreationDate.ToString()
+                CreationDate = x.CreationDate.ToString(CultureInfo.InvariantCulture)
             });
 
             if (!string.IsNullOrWhiteSpace(searchModel.Name))
