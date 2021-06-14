@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using _0_Framework.Application;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +13,8 @@ namespace ServiceHost.Areas.AdminPanel.Pages.Shop.Products
 {
     public class IndexModel : PageModel
     {
+        [TempData]
+        public string Message { get; set; }
         public ProductSearchModel SearchModel;
         private readonly IProductApplication _application;
         private readonly IProductCategoryApplication _productCategoryApplication;
@@ -32,6 +35,9 @@ namespace ServiceHost.Areas.AdminPanel.Pages.Shop.Products
 
         public IActionResult OnGetCreate()
         {
+            var command = new CreateProduct();
+            command.Categories = _productCategoryApplication.GetProductCategories();
+
             return Partial("./Create", new CreateProduct());
         }
 
@@ -54,6 +60,27 @@ namespace ServiceHost.Areas.AdminPanel.Pages.Shop.Products
             var result = _application.Edit(command);
 
             return new JsonResult(result);
+        }
+
+
+        public IActionResult OnGetIsInStock(long id)
+        {
+            var result = _application.InStock(id);
+            if (result.IsSuccedded)
+                return RedirectToPage("./Index");
+
+            Message = result.Message;
+            return RedirectToPage("./Index");
+        }
+
+        public IActionResult OnGetNotInStock(long id)
+        {
+            var result = _application.InStock(id);
+            if (result.IsSuccedded)
+                return RedirectToPage("./Index");
+
+            Message = result.Message;
+            return RedirectToPage("./Index");
         }
     }
 }
