@@ -1,4 +1,7 @@
-﻿namespace ShopManagement.Application.Contracts.Product
+﻿using System.Collections.Generic;
+using ShopManagement.Application.Contracts.ProductCategory;
+
+namespace ShopManagement.Application.Contracts.Product
 {
     public class CreateProduct
     {
@@ -14,5 +17,6 @@
         public string Keywords { get; set; }
         public string MetaDescription { get; set; }
         public long CategoryId { get; set; }
+        public List<ProductCategoryViewModel> Categories { get; set; }
     }
 }
