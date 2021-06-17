@@ -47,7 +47,7 @@ namespace ShopManagement.Application.Product
             if (product == null)
                 return result.Failed(ApplicationMessages.RecordNotFound);
 
-            if (_repository.Exists(x => x.Name == command.Name && x.Id == command.Id))
+            if (_repository.Exists(x => x.Name == command.Name && x.Id != command.Id))
                 return result.Failed();
 
             var slug = command.Slug.Slugify();
