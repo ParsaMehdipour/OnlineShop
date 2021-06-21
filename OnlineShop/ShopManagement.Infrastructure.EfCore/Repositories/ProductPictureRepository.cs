@@ -39,7 +39,8 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
                     Product = p.Product.Name,
                     CreationDate = p.CreationDate.ToString(CultureInfo.InvariantCulture),
                     Picture = p.Picture,
-                    ProductId = p.ProductId
+                    ProductId = p.ProductId,
+                    IsRemoved = p.IsRemoved
                 });
 
             if (searchModel.ProductId != 0)
