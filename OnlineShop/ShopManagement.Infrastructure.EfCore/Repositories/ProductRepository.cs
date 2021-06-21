@@ -65,5 +65,14 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
 
             return query.OrderByDescending(x => x.Id).ToList();
         }
+
+        public List<ProductViewModel> GetProducts()
+        {
+            return _context.Products.Select(p => new ProductViewModel
+            {
+                Id = p.Id,
+                Name = p.Name
+            }).ToList();
+        }
     }
 }
