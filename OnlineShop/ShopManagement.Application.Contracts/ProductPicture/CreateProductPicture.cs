@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using _0_Framework.Application;
+using ShopManagement.Application.Contracts.Product;
 
 namespace ShopManagement.Application.Contracts.ProductPicture
 {
@@ -16,5 +18,7 @@ namespace ShopManagement.Application.Contracts.ProductPicture
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
         public string PictureAlt { get; set; }
+
+        public List<ProductViewModel> Products { get; set; }
     }
 }
