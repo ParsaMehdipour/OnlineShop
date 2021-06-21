@@ -9,7 +9,7 @@ namespace ShopManagement.Application.Contracts.ProductPicture
         OperationResult Restore(long id);
         OperationResult Remove(long id);
         OperationResult Create(CreateProductPicture command);
-        OperationResult EditProductPicture(EditProductPicture command);
+        OperationResult Edit(EditProductPicture command);
         EditProductPicture GetDetails(long id);
 
     }
