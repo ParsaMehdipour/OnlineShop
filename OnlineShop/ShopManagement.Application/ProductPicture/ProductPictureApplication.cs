@@ -69,7 +69,7 @@ namespace ShopManagement.Application.ProductPicture
             return operationResult.Succedded();
         }
 
-        public OperationResult EditProductPicture(EditProductPicture command)
+        public OperationResult Edit(EditProductPicture command)
         {
             var operationResult = new OperationResult();
 
@@ -78,7 +78,10 @@ namespace ShopManagement.Application.ProductPicture
             if (productPicture == null)
                 return operationResult.Failed(ApplicationMessages.RecordNotFound);
 
-            if (_repository.Exists(p => p.Picture == command.Picture && p.ProductId == command.ProductId))
+            if (_repository.Exists(p => 
+                p.Picture == command.Picture 
+                && p.ProductId == command.ProductId
+                && p.Id != command.Id))
                 return operationResult.Failed(ApplicationMessages.DuplicatedRecord);
 
             productPicture.Edit(command.ProductId, command.Picture
