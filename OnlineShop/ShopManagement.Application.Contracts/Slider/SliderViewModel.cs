@@ -10,5 +10,7 @@
         public string Text { get; set; }
         public string Heading { get; set; }
         public string BtnText { get; set; }
+        public bool IsRemoved { get; set; }
+        public string CreationDate { get; set; }
     }
 }
