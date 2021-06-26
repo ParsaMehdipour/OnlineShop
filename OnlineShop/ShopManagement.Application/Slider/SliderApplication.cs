@@ -58,6 +58,8 @@ namespace ShopManagement.Application.Slider
 
             slider.Remove();
 
+            _repository.SaveChanges();
+
             return result.Succedded();
         }
 
@@ -71,6 +73,8 @@ namespace ShopManagement.Application.Slider
                 return result.Failed(ApplicationMessages.RecordNotFound);
 
             slider.Restore();
+
+            _repository.SaveChanges();
 
             return result.Succedded();
         }
