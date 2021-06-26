@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using _0_Framework.Infrastructure;
 using Microsoft.EntityFrameworkCore;
@@ -36,13 +37,16 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
         {
             return _context.Sliders.Select(s => new SliderViewModel
             {
+                Id = s.Id,
                 Title = s.Title,
                 Picture = s.Picture,
                 PictureAlt = s.PictureAlt,
                 PictureTitle = s.PictureTitle,
                 BtnText = s.BtnText,
                 Text = s.Text,
-                Heading = s.Heading
+                Heading = s.Heading,
+                CreationDate = s.CreationDate.ToString(CultureInfo.InvariantCulture),
+                IsRemoved = s.IsRemoved
             }).OrderByDescending(s=>s.Id).ToList();
         }
     }
