@@ -20,7 +20,7 @@ namespace ShopManagement.Application.Slider
 
             var slider = new Domain.SliderAgg.Slider(command.Picture, command.PictureAlt, command.PictureTitle
                 , command.Heading, command.Title, command.Text
-                , command.BtnText);
+                , command.BtnText, command.Link);
 
             _repository.Create(slider);
 
@@ -38,9 +38,9 @@ namespace ShopManagement.Application.Slider
             if (slider == null)
                 return result.Failed(ApplicationMessages.RecordNotFound);
 
-            slider.Edit(command.Picture,command.PictureAlt,command.PictureTitle
-            ,command.Heading,command.Title,command.Text
-            ,command.BtnText);
+            slider.Edit(command.Picture, command.PictureAlt, command.PictureTitle
+            , command.Heading, command.Title, command.Text
+            , command.BtnText, command.Link);
 
             _repository.SaveChanges();
 
