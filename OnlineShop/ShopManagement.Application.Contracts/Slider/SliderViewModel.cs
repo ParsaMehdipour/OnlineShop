@@ -1,4 +1,6 @@
-﻿namespace ShopManagement.Application.Contracts.Slider
+﻿using System.Reflection;
+
+namespace ShopManagement.Application.Contracts.Slider
 {
     public class SliderViewModel
     {
@@ -12,5 +14,6 @@
         public string BtnText { get; set; }
         public bool IsRemoved { get; set; }
         public string CreationDate { get; set; }
+        public string Link { get; set; }
     }
 }
