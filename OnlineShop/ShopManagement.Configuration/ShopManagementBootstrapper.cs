@@ -1,6 +1,7 @@
 ﻿using System;
 using _0_Framework.Domain;
 using _0_Framework.Infrastructure;
+using _01_OnlineShopQuery.Contracts.Slide;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ShopManagement.Application.Contracts.Product;
@@ -33,6 +34,8 @@ namespace ShopManagement.Configuration
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IProductPictureApplication, ProductPictureApplication>();
             services.AddTransient<ISliderApplication, SliderApplication>();
+
+            services.AddTransient<ISlideQuery, SlideQuery>();
 
             services.AddDbContext<ShopContext>(options =>
             {
