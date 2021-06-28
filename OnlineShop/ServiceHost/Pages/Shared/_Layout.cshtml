@@ -4,17 +4,27 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lampshapde Store</title>
+    @if (ViewData["Title"] != null)
+    {
+        <title>@ViewData["Title"] -فروشگاه</title>
+    }
+    else
+    {
+        <title>فروشگاه</title>
+    }
 
-    <!-- Vendor CSS -->
-    <link href="~/Theme/assets/css/vendors.css" rel="stylesheet">
-    <!-- Main CSS -->
-    <link href="~/Theme/assets/css/style.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="~/Theme/assets/css/Custom.css" rel="stylesheet">
+    <meta name="keywords" content="@ViewData["keywords"]" />
+    <meta name="description" content="@ViewData["metaDescription"]" />
+
+    <link href="~/Theme/assets/css/vendors.css" rel="stylesheet" />
+    <link href="~/Theme/assets/css/style.css" rel="stylesheet" />
+    <link href="~/Theme/assets/css/Custom.css" rel="stylesheet" />
+
 </head>
 
-<body>
+ <body>
+
+
     <!--====================  header area ====================-->
     <div class="header-area header-sticky">
         <div class="container">
@@ -25,7 +35,7 @@
                         <!-- logo -->
                         <div class="logo">
                             <a href="index.html">
-                                <img src="assets/img/logo.png" class="img-fluid" alt="">
+                                <img src="~/Theme/assets/img/logo.png" class="img-fluid" alt="">
                             </a>
                         </div>
                         <!-- menu wrapper -->
@@ -143,7 +153,7 @@
                                                     </a>
                                                     <div class="image">
                                                         <a href="single-product.html">
-                                                            <img src="assets/img/products/product-1-80x106.jpg"
+                                                            <img src="~/Theme/assets/img/products/product-1-80x106.jpg"
                                                                  class="img-fluid" alt="">
                                                         </a>
                                                     </div>
@@ -160,7 +170,7 @@
                                                     </a>
                                                     <div class="image">
                                                         <a href="single-product.html">
-                                                            <img src="assets/img/products/product-2-80x106.jpg"
+                                                            <img src="~/Theme/assets/img/products/product-2-80x106.jpg"
                                                                  class="img-fluid" alt="">
                                                         </a>
                                                     </div>
@@ -177,7 +187,7 @@
                                                     </a>
                                                     <div class="image">
                                                         <a href="single-product.html">
-                                                            <img src="assets/img/products/product-3-80x106.jpg"
+                                                            <img src="~/Theme/assets/img/products/product-3-80x106.jpg"
                                                                  class="img-fluid" alt="">
                                                         </a>
                                                     </div>
@@ -258,12 +268,12 @@
                                                 <ul>
                                                     <li>
                                                         <a href="javascript:void(0)">
-                                                            <img src="assets/img/icons/en-gb.png" alt=""> English
+                                                            <img src="~/Theme/assets/img/icons/en-gb.png" alt=""> English
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="javascript:void(0)">
-                                                            <img src="assets/img/icons/de-de.png" alt=""> Germany
+                                                            <img src="~/Theme/assets/img/icons/de-de.png" alt=""> Germany
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -282,7 +292,7 @@
                             <div class="col-6 col-md-6">
                                 <div class="header-logo">
                                     <a href="index.html">
-                                        <img src="assets/img/logo.png" class="img-fluid" alt="">
+                                        <img src="~/Theme/assets//img/logo.png" class="img-fluid" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -635,17 +645,36 @@
     </div>
 
 
-    <!-- scroll to top  -->
-    <div id="scroll-top">
-        <span>Back to top</span><i class="ion-chevron-right"></i><i class="ion-chevron-right"></i>
+    <div class="search-overlay" id="search-overlay">
+        <a href="javascript:void(0)" class="close-search-overlay" id="close-search-overlay">
+            <i class="ion-ios-close-empty"></i>
+        </a>
+        <div class="search-form">
+            <form method="get" asp-page="/Search">
+                <input type="search" name="value" id="value" placeholder="هرچه می خواهید در فروشگاه جستجو کنید ...">
+                <button type="submit">
+                    <i class="ion-android-search"></i>
+                </button>
+            </form>
+        </div>
     </div>
-    <!-- end of scroll to top -->
-    <!-- Vendor JS -->
+
+
+    <div id="scroll-top">
+        <span>برو بالا</span><i class="ion-chevron-right"></i><i class="ion-chevron-right"></i>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/Theme/assets/js/vendors.js"></script>
-
-    <!-- Active JS -->
     <script src="~/Theme/assets/js/active.js"></script>
+    <script src="~/Theme/assets/js/plugins.js"></script>
+    <script src="~/Theme/assets/js/custom.js"></script>
 
-</body>
+    <script>
+        $(document).ready(function () {
+            updateCart();
+        });
+    </script>
+ </body>
 
 </html>

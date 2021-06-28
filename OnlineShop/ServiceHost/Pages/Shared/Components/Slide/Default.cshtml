@@ -1,12 +1,8 @@
 ﻿@model List<_01_OnlineShopQuery.Contracts.Slide.SlideQueryModel>
-
-
-    <div class="hero-slider-area section-space">
+<div class="hero-slider-area section-space">
         <div class="container wide">
             <div class="row">
                 <div class="col-lg-12">
-                    <!--=======  hero slider wrapper  =======-->
-
                     <div class="hero-slider-wrapper">
                         <div class="ht-slick-slider" data-slick-setting='{
                         "slidesToShow": 1,
@@ -29,8 +25,6 @@
                         {"breakpoint":479, "settings": {"slidesToShow": 1, "arrows": false} }
                     ]'>
 
-                            <!--=======  single slider item  =======-->
-
                             @foreach (var slide in Model)
                             {
                                 <div class="single-slider-item">
@@ -40,15 +34,12 @@
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="hero-slider-content hero-slider-content--left-space">
-                                                        <p class="slider-title slider-title--big-light">
-                                                            @slide.Heading
-                                                        </p>
+                                                        <p class="slider-title slider-title--big-light">@slide.Heading</p>
                                                         <p class="slider-title slider-title--big-bold">@slide.Title</p>
                                                         <p class="slider-title slider-title--small">
                                                             @slide.Text
                                                         </p>
-                                                        <a class="theme-button hero-slider-button"
-                                                           href="@slide.Link">
+                                                        <a class="hero-slider-button" href="@slide.Link">
                                                             @slide.BtnText <i class="ion-ios-plus-empty"></i>
                                                         </a>
                                                     </div>
@@ -59,12 +50,8 @@
                                 </div>
                             }
 
-                            <!--=======  End of single slider item  =======-->
-
                         </div>
                     </div>
-
-                    <!--=======  End of hero slider wrapper  =======-->
                 </div>
             </div>
         </div>
