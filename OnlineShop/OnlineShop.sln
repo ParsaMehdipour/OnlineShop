@@ -35,7 +35,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscountManagement.Domain",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM.Application", "DM.Application", "{DD5EE6D4-60C3-419E-9583-9CE373184FDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscountManagement.Application.Contracts", "DiscountManagement.Application.Contracts\DiscountManagement.Application.Contracts.csproj", "{E596A335-5EC3-48D4-85D0-45FD25E982CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscountManagement.Application.Contracts", "DiscountManagement.Application.Contracts\DiscountManagement.Application.Contracts.csproj", "{E596A335-5EC3-48D4-85D0-45FD25E982CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM.Infrastructure", "DM.Infrastructure", "{AABA0653-4B0C-488B-96D2-5C34C7DBAA54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscountManagement.Infrastructure.EfCore", "DiscountManagement.Infrastructure.EfCore\DiscountManagement.Infrastructure.EfCore.csproj", "{E69FCAE0-386E-434C-BED3-F7C0EF667C2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +87,10 @@ Global
 		{E596A335-5EC3-48D4-85D0-45FD25E982CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E596A335-5EC3-48D4-85D0-45FD25E982CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E596A335-5EC3-48D4-85D0-45FD25E982CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E69FCAE0-386E-434C-BED3-F7C0EF667C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E69FCAE0-386E-434C-BED3-F7C0EF667C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E69FCAE0-386E-434C-BED3-F7C0EF667C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E69FCAE0-386E-434C-BED3-F7C0EF667C2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +108,8 @@ Global
 		{8AFDA72B-5582-4531-90CA-1FEAC0B3DE24} = {2796A056-5F2F-4E87-9481-CDB1164CB29E}
 		{DD5EE6D4-60C3-419E-9583-9CE373184FDC} = {2F01DB08-ECB8-4BAD-8ACE-224D36F7B1EE}
 		{E596A335-5EC3-48D4-85D0-45FD25E982CB} = {DD5EE6D4-60C3-419E-9583-9CE373184FDC}
+		{AABA0653-4B0C-488B-96D2-5C34C7DBAA54} = {2F01DB08-ECB8-4BAD-8ACE-224D36F7B1EE}
+		{E69FCAE0-386E-434C-BED3-F7C0EF667C2E} = {AABA0653-4B0C-488B-96D2-5C34C7DBAA54}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2E8D8FDE-A524-42FE-8B25-E7050EC7D799}
