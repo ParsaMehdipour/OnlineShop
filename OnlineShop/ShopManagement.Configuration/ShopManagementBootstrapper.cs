@@ -26,13 +26,13 @@ namespace ShopManagement.Configuration
     {
         public static void Configure(IServiceCollection services,string connectionString)
         {
-            services.AddTransient<IProductCategoryApplication, ProductCategoryApplication>();
+            services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
             services.AddTransient<IProductPictureRepository, ProductPictureRepository>();
             services.AddTransient<ISliderRepository, SliderRepository>();
 
             services.AddTransient<IProductApplication, ProductApplication>();
-            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductCategoryApplication, ProductCategoryApplication>();
             services.AddTransient<IProductPictureApplication, ProductPictureApplication>();
             services.AddTransient<ISliderApplication, SliderApplication>();
 
