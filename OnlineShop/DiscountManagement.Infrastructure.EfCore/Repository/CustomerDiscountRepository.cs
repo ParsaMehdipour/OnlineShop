@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Globalization;
 using System.Linq;
+using _0_Framework.Application;
 using _0_Framework.Infrastructure;
 using DiscountManagement.Application.Contracts.CustomerDiscount;
 using DiscountManagement.Domain.CustomerDiscountAgg;
@@ -31,9 +32,9 @@ namespace DiscountManagement.Infrastructure.EfCore.Repository
                 Id = c.Id,
                 DiscountRate = c.DiscountRate,
                 ProductId = c.ProductId,
-                StartDate = c.StartDate.ToString(CultureInfo.InvariantCulture),
+                StartDate = c.StartDate.ToFarsi(),
                 StartDateGr = c.StartDate,
-                EndDate = c.EndDate.ToString(CultureInfo.InvariantCulture),
+                EndDate = c.EndDate.ToFarsi(),
                 EndDateGr = c.EndDate,
                 Reason = c.Reason
             });
@@ -43,22 +44,20 @@ namespace DiscountManagement.Infrastructure.EfCore.Repository
 
             if (!string.IsNullOrWhiteSpace(searchModel.StartDate))
             {
-                var startDate = DateTime.Now;
-
-                query = query.Where(c => c.StartDateGr < startDate);
+                query = query.Where(c => c.StartDateGr > searchModel.StartDate.ToGeorgianDateTime());
             }
 
             if (!string.IsNullOrWhiteSpace(searchModel.EndDate))
             {
-                var endDate = DateTime.Now;
-
-                query = query.Where(c => c.EndDateGr > endDate);
+                query = query.Where(c => c.EndDateGr < searchModel.EndDate.ToGeorgianDateTime());
             }
 
             var discounts = query.OrderByDescending(c => c.Id).ToList();
 
             discounts.ForEach(discount => 
                 discount.Product = products.FirstOrDefault(c=>c.Id == discount.ProductId)?.Name);
+
+            return discounts;
         }
 
         public EditCustomerDiscount GetDetails(long id)
@@ -68,7 +67,7 @@ namespace DiscountManagement.Infrastructure.EfCore.Repository
                 Id = c.Id,
                 ProductId = c.ProductId,
                 StartDate = c.StartDate.ToString(CultureInfo.InvariantCulture),
-                EndDate = c.EndDate.ToString(CultureInfo.InvariantCulture),
+                EndDate = c.EndDate.ToFarsi(),
                 Reason = c.Reason,
                 DiscountRate = c.DiscountRate
             }).FirstOrDefault(c=>c.Id == id);
