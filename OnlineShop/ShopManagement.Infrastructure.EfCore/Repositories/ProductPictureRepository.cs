@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using _0_Framework.Application;
 using _0_Framework.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using ShopManagement.Application.Contracts.ProductPicture;
@@ -37,7 +38,7 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
                 {
                     Id = p.Id,
                     Product = p.Product.Name,
-                    CreationDate = p.CreationDate.ToString(CultureInfo.InvariantCulture),
+                    CreationDate = p.CreationDate.ToFarsi(),
                     Picture = p.Picture,
                     ProductId = p.ProductId,
                     IsRemoved = p.IsRemoved

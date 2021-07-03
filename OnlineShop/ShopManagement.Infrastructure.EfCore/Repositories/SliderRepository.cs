@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
+using _0_Framework.Application;
 using _0_Framework.Infrastructure;
-using Microsoft.EntityFrameworkCore;
 using ShopManagement.Application.Contracts.Slider;
 using ShopManagement.Domain.SliderAgg;
 
@@ -46,7 +45,7 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
                 BtnText = s.BtnText,
                 Text = s.Text,
                 Heading = s.Heading,
-                CreationDate = s.CreationDate.ToString(CultureInfo.InvariantCulture),
+                CreationDate = s.CreationDate.ToFarsi(),
                 IsRemoved = s.IsRemoved,
                 Link = s.Link
             }).OrderByDescending(s=>s.Id).ToList();

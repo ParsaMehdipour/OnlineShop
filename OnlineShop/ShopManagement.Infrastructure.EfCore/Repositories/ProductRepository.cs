@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using _0_Framework.Application;
 using _0_Framework.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using ShopManagement.Application.Contracts.Product;
@@ -48,7 +49,7 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
                     Name = x.Name,
                     Category = x.ProductCategory.Name,
                     Code = x.Code,
-                    CreationDate = x.CreationDate.ToString(CultureInfo.InvariantCulture),
+                    CreationDate = x.CreationDate.ToFarsi(),
                     Picture = x.Picture,
                     UnitPrice = x.UnitPrice,
                     IsInStock = x.InStock
