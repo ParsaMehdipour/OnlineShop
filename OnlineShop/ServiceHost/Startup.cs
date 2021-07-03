@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DiscountManagement.Configuration;
 using ShopManagement.Configuration;
 
 namespace ServiceHost
@@ -25,6 +26,8 @@ namespace ServiceHost
         public void ConfigureServices(IServiceCollection services)
         {
             ShopManagementBootstrapper.Configure(services,Configuration.GetConnectionString("OnlineShopConnection"));
+
+            DiscountManagementBootstrapper.Configure(services, Configuration.GetConnectionString("OnlineShopConnection"));
 
             services.AddRazorPages();
         }
