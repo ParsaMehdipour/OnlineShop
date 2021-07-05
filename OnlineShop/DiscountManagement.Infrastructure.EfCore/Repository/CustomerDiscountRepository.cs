@@ -36,7 +36,8 @@ namespace DiscountManagement.Infrastructure.EfCore.Repository
                 StartDateGr = c.StartDate,
                 EndDate = c.EndDate.ToFarsi(),
                 EndDateGr = c.EndDate,
-                Reason = c.Reason
+                Reason = c.Reason,
+                CreationDate = c.CreationDate.ToFarsi()
             });
 
             if (searchModel.ProductId > 0)
