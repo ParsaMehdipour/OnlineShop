@@ -23,7 +23,7 @@ namespace DiscountManagement.Application.CustomerDiscount
                 return operationResult.Failed(ApplicationMessages.DuplicatedRecord);
 
             var startDate = command.StartDate.ToGeorgianDateTime();
-            var endDate = command.StartDate.ToGeorgianDateTime();
+            var endDate = command.EndDate.ToGeorgianDateTime();
 
             var customerDiscount = new Domain.CustomerDiscountAgg.CustomerDiscount(
                 command.ProductId, command.DiscountRate, startDate, endDate
@@ -47,7 +47,7 @@ namespace DiscountManagement.Application.CustomerDiscount
                 return operationResult.Failed(ApplicationMessages.RecordNotFound);
 
             var startDate = command.StartDate.ToGeorgianDateTime();
-            var endDate = command.StartDate.ToGeorgianDateTime();
+            var endDate = command.EndDate.ToGeorgianDateTime();
 
             if (_repository.Exists(x =>
                 x.ProductId == command.ProductId && x.DiscountRate == command.DiscountRate && x.Id != command.Id)) 
