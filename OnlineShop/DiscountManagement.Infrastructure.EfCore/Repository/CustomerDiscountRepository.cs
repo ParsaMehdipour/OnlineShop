@@ -67,7 +67,7 @@ namespace DiscountManagement.Infrastructure.EfCore.Repository
             {
                 Id = c.Id,
                 ProductId = c.ProductId,
-                StartDate = c.StartDate.ToString(CultureInfo.InvariantCulture),
+                StartDate = c.StartDate.ToFarsi(),
                 EndDate = c.EndDate.ToFarsi(),
                 Reason = c.Reason,
                 DiscountRate = c.DiscountRate
