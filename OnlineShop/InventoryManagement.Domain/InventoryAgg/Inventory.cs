@@ -20,7 +20,7 @@ namespace InventoryManagement.Domain.InventoryAgg
             InventoryOperations = new List<InventoryOperation>();
         }
 
-        private long CalculateCurrentCount()
+        public long CalculateCurrentCount()
         {
             var plus = InventoryOperations.Where(x => x.Operation is true).Sum(x => x.Count);
             var minus = InventoryOperations.Where(x => x.Operation is false).Sum(x => x.Count);
