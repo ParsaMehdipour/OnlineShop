@@ -350,3 +350,4 @@ MigrationBackup/
 .ionide/
 /OnlineShop/ShopManagement.Infrastructure.EfCore/Migrations
 /OnlineShop/DiscountManagement.Infrastructure.EfCore/Migrations
+/OnlineShop/InventoryManagement.Infrastructure.EfCore/Migrations
