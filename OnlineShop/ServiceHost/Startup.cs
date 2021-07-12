@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DiscountManagement.Configuration;
+using InventoryManagement.Infrastructure.Configuration;
 using ShopManagement.Configuration;
 
 namespace ServiceHost
@@ -28,6 +29,8 @@ namespace ServiceHost
             ShopManagementBootstrapper.Configure(services,Configuration.GetConnectionString("OnlineShopConnection"));
 
             DiscountManagementBootstrapper.Configure(services, Configuration.GetConnectionString("OnlineShopConnection"));
+
+            InventoryManagementBootsrapper.Configure(services, Configuration.GetConnectionString("OnlineShopConnection"));
 
             services.AddRazorPages();
         }
