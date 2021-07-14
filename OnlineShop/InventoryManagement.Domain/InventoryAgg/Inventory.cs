@@ -12,12 +12,23 @@ namespace InventoryManagement.Domain.InventoryAgg
         public bool InStock { get; private set; }
         public List<InventoryOperation> InventoryOperations { get; private set; }
 
+        public Inventory()
+        {
+            
+        }
+
         public Inventory(long productId, double unitPrice)
         {
             ProductId = productId;
             UnitPrice = unitPrice;
             InStock = false;
             InventoryOperations = new List<InventoryOperation>();
+        }
+
+        public void Edit(long productId, double unitPrice)
+        {
+            ProductId = productId;
+            UnitPrice = unitPrice;
         }
 
         public long CalculateCurrentCount()
