@@ -23,29 +23,27 @@ namespace InventoryManagement.Infrastructure.EfCore.Repository
 
         public List<InventoryViewModel> Search(InventorySearchModel searchModel)
         {
-            var products = _shopContext.Products.Select(x => new {x.Id, x.Name});
-
+            var products = _shopContext.Products.Select(x => new { x.Id, x.Name }).ToList();
             var query = _context.Inventory.Select(x => new InventoryViewModel
             {
                 Id = x.Id,
-                CreationDate = x.CreationDate.ToFarsi(),
                 UnitPrice = x.UnitPrice,
                 InStock = x.InStock,
-                CurrentCount = x.CalculateCurrentCount()
+                ProductId = x.ProductId,
+                CurrentCount = x.CalculateCurrentCount(),
+                CreationDate = x.CreationDate.ToFarsi()
             });
 
-            if (searchModel.ProductId > 0) 
+            if (searchModel.ProductId > 0)
                 query = query.Where(x => x.ProductId == searchModel.ProductId);
 
-            if (!searchModel.InStock)
+            if (searchModel.InStock)
                 query = query.Where(x => !x.InStock);
 
-            var inventory = query.OrderByDescending(x=>x.Id).ToList();
+            var inventory = query.OrderByDescending(x => x.Id).ToList();
 
             inventory.ForEach(item =>
-            {
-                item.Product = products.FirstOrDefault(x => x.Id == item.ProductId)?.Name;
-            });
+                item.Product = products.FirstOrDefault(x => x.Id == item.ProductId)?.Name);
 
             return inventory;
         }
