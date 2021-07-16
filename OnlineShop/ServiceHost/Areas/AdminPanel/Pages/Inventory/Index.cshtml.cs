@@ -61,5 +61,39 @@ namespace ServiceHost.Areas.AdminPanel.Pages.Inventory
 
             return new JsonResult(result);
         }
+
+        public IActionResult OnGetIncrease(long id)
+        {
+            var command = new IncreaseInventory()
+            {
+                InventoryId = id
+            };
+
+            return Partial("Increase", command);
+        }
+
+        public JsonResult OnPostIncrease(IncreaseInventory command)
+        {
+            var result = _application.Increase(command);
+
+            return new JsonResult(result);
+        }
+
+
+        public IActionResult OnGetReduce(long id)
+        {
+            var command = new ReduceInventory()
+            {
+                InventoryId = id
+            };
+
+            return Partial("Reduce", command);
+        }
+        public JsonResult OnPostReduce(ReduceInventory command)
+        {
+            var result = _application.Reduce(command);
+
+            return new JsonResult(result);
+        }
     }
 }
