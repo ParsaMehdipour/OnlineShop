@@ -54,7 +54,7 @@ namespace InventoryManagement.Domain.InventoryAgg
         {
             var currentCount = CalculateCurrentCount() - count;
 
-            var inventoryOperation = new InventoryOperation(true, count, operatorId, currentCount, description, orderId, Id);
+            var inventoryOperation = new InventoryOperation(false, count, operatorId, currentCount, description, orderId, Id);
 
             InventoryOperations.Add(inventoryOperation);
 
