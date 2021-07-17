@@ -62,5 +62,24 @@ namespace InventoryManagement.Infrastructure.EfCore.Repository
                 UnitPrice = x.UnitPrice,
             }).FirstOrDefault(x => x.Id == id);
         }
+
+        public List<InventoryOperationViewModel> GetLog(long id)
+        {
+            var inventory = _context.Inventory.FirstOrDefault(x => x.Id == id);
+
+            return inventory.InventoryOperations.Select(x => new InventoryOperationViewModel
+            {
+                Id = x.Id,
+                Operation = x.Operation,
+                OperationDate = x.OperationDate.ToFarsi(),
+                Operator = "مدیر سیستم",
+                OperatorId = x.OperatorId,
+                Description = x.Description,
+                CurrentCount = x.CurrentCount,
+                OrderId = x.OrderId,
+                Count = x.Count,
+                InventoryId = x.InventoryId
+            }).OrderByDescending(x => x.Id).ToList();
+        }
     }
 }
