@@ -88,8 +88,14 @@
                                             </a>
 
                                             <a class="btn btn-danger btn-custom waves-light m-b-5"
-                                                   href="#showmodal=@Url.Page("./Index", "Reduce", new { id = item.Id})">
+                                               href="#showmodal=@Url.Page("./Index", "Reduce", new { id = item.Id})">
                                                 <i class="fa fa-edit"> کاهش موجودی </i>
+                                            </a>
+                                            
+                                            <a class="btn btn-primary btn-custom waves-light m-b-5"
+                                               href="#showmodal=@Url.Page("./Index", "Log", new {id = item.Id})"
+                                               onclick="$('.modal-dialog').css('width', '60%')">
+                                                <i class="fa fa-recycle"></i> گزارش گردش
                                             </a>
                                         </td>
                                     </tr>
