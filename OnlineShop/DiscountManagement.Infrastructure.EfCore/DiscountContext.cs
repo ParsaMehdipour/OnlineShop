@@ -7,7 +7,7 @@ namespace DiscountManagement.Infrastructure.EfCore
 {
     public class DiscountContext : DbContext
     {
-        public DiscountContext(DbContextOptions options)
+        public DiscountContext(DbContextOptions<DiscountContext> options)
             :base(options)
         {
             
