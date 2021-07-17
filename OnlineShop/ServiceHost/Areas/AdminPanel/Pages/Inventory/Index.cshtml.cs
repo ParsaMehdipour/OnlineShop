@@ -95,5 +95,12 @@ namespace ServiceHost.Areas.AdminPanel.Pages.Inventory
 
             return new JsonResult(result);
         }
+
+        public IActionResult OnGetLog(long id)
+        {
+            var log = _application.GetLog(id);
+
+            return Partial("OperationLog", log);
+        }
     }
 }
