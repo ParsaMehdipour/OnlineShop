@@ -25,7 +25,7 @@ Customer Discount Management
 
 Colleague Discount Management
 
-![Screenshot (52)](https://user-images.githubusercontent.com/75223567/126049559-9585709b-1e95-4572-9620-d91088e1cd5e.png)
+![Screenshot (58)](https://user-images.githubusercontent.com/75223567/126049861-a703bb6d-d829-42b8-b65b-8815091d04fa.png)
 ![Screenshot (53)](https://user-images.githubusercontent.com/75223567/126049560-fdef9bb4-9514-45c2-8e93-d4f7761d1430.png)
 
 Inventoy Management
