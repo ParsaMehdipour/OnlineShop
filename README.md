@@ -4,19 +4,19 @@ Online Shop Project From Asp Net 5 Course :
 
 Sliders Management
 
-![Screenshot (36)](https://user-images.githubusercontent.com/75223567/123773343-d94ee680-d8e1-11eb-83ca-6052bfabce03.png)
+![Screenshot (55)](https://user-images.githubusercontent.com/75223567/126049726-1aa037d3-2051-4279-8c24-467b63ca6411.png)
 
 Product Category Management
 
-![Screenshot (37)](https://user-images.githubusercontent.com/75223567/123773382-df44c780-d8e1-11eb-8ea2-993d423dbdb9.png)
+![Screenshot (54)](https://user-images.githubusercontent.com/75223567/126049729-1c7b0e1b-b343-4b5c-9de3-53abe8a6a833.png)
 
 Product Management
 
-![Screenshot (38)](https://user-images.githubusercontent.com/75223567/123773394-e1a72180-d8e1-11eb-9a81-74c80008ef33.png)
+![Screenshot (56)](https://user-images.githubusercontent.com/75223567/126049730-90164d17-1c2e-4b5c-9fb9-e5531c89f2b6.png)
 
 Product Pictures Management
 
-![Screenshot (39)](https://user-images.githubusercontent.com/75223567/123773403-e370e500-d8e1-11eb-901a-067c095d2f50.png)
+![Screenshot (57)](https://user-images.githubusercontent.com/75223567/126049734-fe4e426e-16b4-488c-b2b9-3778776bf9ef.png)
 
 Customer Discount Management
 
