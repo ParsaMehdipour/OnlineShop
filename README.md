@@ -12,7 +12,7 @@ Product Category Management
 
 Product Management
 
-![Screenshot (56)](https://user-images.githubusercontent.com/75223567/126049730-90164d17-1c2e-4b5c-9fb9-e5531c89f2b6.png)
+![Screenshot (59)](https://user-images.githubusercontent.com/75223567/126080578-f050b9c7-d00f-4459-8d30-291bfc3064ed.png)
 
 Product Pictures Management
 
