@@ -26,7 +26,7 @@ namespace ShopManagement.Application.Product
 
             var slug = command.Slug.Slugify();
 
-            var product = new Domain.ProductAgg.Product(command.Name, command.Code, command.UnitPrice,
+            var product = new Domain.ProductAgg.Product(command.Name, command.Code,
                 command.ShortDescription, command.Description, command.Picture,
                 command.PictureAlt, command.PictureTitle, slug,
                 command.Keywords, command.MetaDescription, command.CategoryId);
@@ -52,7 +52,7 @@ namespace ShopManagement.Application.Product
 
             var slug = command.Slug.Slugify();
 
-            product.Edit(command.Name, command.Code, command.UnitPrice,
+            product.Edit(command.Name, command.Code,
                 command.ShortDescription, command.Description, command.Picture,
                 command.PictureAlt, command.PictureTitle, slug,
                 command.Keywords, command.MetaDescription, command.CategoryId);
@@ -75,38 +75,6 @@ namespace ShopManagement.Application.Product
         public EditProduct GetDetails(long id)
         {
             return _repository.GetDetails(id);
-        }
-
-        public OperationResult InStock(long id)
-        {
-            var result = new OperationResult();
-
-            var product = _repository.GetById(id);
-
-            if (product == null)
-                return result.Failed(ApplicationMessages.RecordNotFound);
-
-            product.IsInStock();
-
-            _repository.SaveChanges();
-
-            return result.Succedded();
-        }
-
-        public OperationResult OutOfStock(long id)
-        {
-            var result = new OperationResult();
-
-            var product = _repository.GetById(id);
-
-            if (product == null)
-                return result.Failed(ApplicationMessages.RecordNotFound);
-
-            product.NotInStock();
-
-            _repository.SaveChanges();
-
-            return result.Succedded();
         }
     }
 }
