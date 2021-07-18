@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using _0_Framework.Application;
 using _0_Framework.Infrastructure;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +24,6 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
                 Id = x.Id,
                 Name = x.Name,
                 Code = x.Code,
-                UnitPrice = x.UnitPrice,
                 Picture = x.Picture,
                 PictureAlt = x.PictureAlt,
                 PictureTitle = x.PictureTitle,
@@ -51,8 +48,6 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
                     Code = x.Code,
                     CreationDate = x.CreationDate.ToFarsi(),
                     Picture = x.Picture,
-                    UnitPrice = x.UnitPrice,
-                    IsInStock = x.InStock
                 });
 
             if (!string.IsNullOrWhiteSpace(searchModel.Name))
