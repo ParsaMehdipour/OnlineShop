@@ -35,9 +35,6 @@ namespace ShopManagement.Infrastructure.EfCore.Mapping
             builder.Property(x => x.Slug).HasMaxLength(500)
                 .IsRequired();
 
-            builder.Property(x => x.UnitPrice);
-
-            builder.Property(x => x.InStock);
 
             builder.Property(x => x.Description);
 
