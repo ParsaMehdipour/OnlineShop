@@ -1,8 +1,6 @@
-﻿using System;
-using _0_Framework.Domain;
-using _0_Framework.Infrastructure;
-using _01_OnlineShopQuery.Contracts.ProductCategory;
+﻿using _01_OnlineShopQuery.Contracts.ProductCategory;
 using _01_OnlineShopQuery.Contracts.Slide;
+using _01_OnlineShopQuery.Query.ProductCategory;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ShopManagement.Application.Contracts.Product;
