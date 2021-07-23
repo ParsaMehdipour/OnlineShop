@@ -54,12 +54,12 @@
                                             <div class="col">
                                                 <div class="single-grid-product">
                                                     <div class="single-grid-product__image">
-                                                        @*@if (product.HasDiscount)
+                                                        @if (product.HasDiscount)
                                                         {
                                                             <div class="single-grid-product__label">
                                                                 <span class="sale">-@product.DiscountRate%</span>
                                                             </div>
-                                                        }*@
+                                                        }
                                                         <a asp-page="/Product" asp-route-id="@product.Slug">
                                                             <img src="@product.Picture" title="@product.PictureTitle" class="img-fluid"
                                                                  alt="@product.PictureAlt">
@@ -85,12 +85,15 @@
                                                             </a>
                                                         </h3>
                                                         <p class="single-grid-product__price">
-                                                            @*@if (product.HasDiscount)
+                                                            @if (product.HasDiscount)
                                                             {
                                                                 <span class="discounted-price">@product.PriceWithDiscount تومان</span>
                                                                 <span class="main-price discounted">@product.Price تومان</span>
-                                                            }*@
+                                                            }
+                                                            else
+                                                            {
                                                                 <span class="main-price">@product.Price تومان</span>
+                                                            }
                                                         </p>
                                                     </div>
                                                 </div>
