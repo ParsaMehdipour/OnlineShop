@@ -7,7 +7,6 @@ namespace DiscountManagement.Application.Contracts.ColleagueDiscount
 {
     public class DefineColleagueDiscount
     {
-        [Range(1 , 1000 , ErrorMessage = ValidationMessages.IsRequired)]
         public long ProductId { get; set; }
 
         [Range(1, 99, ErrorMessage = ValidationMessages.IsRequired)]
