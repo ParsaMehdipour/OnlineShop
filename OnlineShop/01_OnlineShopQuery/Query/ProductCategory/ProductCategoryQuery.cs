@@ -87,9 +87,9 @@ namespace _01_OnlineShopQuery.Query.ProductCategory
 
         }
 
-        private static List<ProductQueryModel> MapProducts(List<Product> Products)
+        private static List<ProductQueryModel> MapProducts(List<ShopManagement.Domain.ProductAgg.Product> products)
         {
-            return Products.Select(x => new ProductQueryModel
+            return products.Select(x => new ProductQueryModel
             {
                 Id = x.Id,
                 Name = x.Name,
