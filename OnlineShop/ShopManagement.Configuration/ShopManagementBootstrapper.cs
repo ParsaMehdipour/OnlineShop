@@ -1,5 +1,7 @@
-﻿using _01_OnlineShopQuery.Contracts.ProductCategory;
+﻿using _01_OnlineShopQuery.Contracts.Product;
+using _01_OnlineShopQuery.Contracts.ProductCategory;
 using _01_OnlineShopQuery.Contracts.Slide;
+using _01_OnlineShopQuery.Query.Product;
 using _01_OnlineShopQuery.Query.ProductCategory;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,6 +38,7 @@ namespace ShopManagement.Configuration
 
             services.AddTransient<ISlideQuery, SlideQuery>();
             services.AddTransient<IProductCategoryQuery, ProductCategoryQuery>();
+            services.AddTransient<IProductQuery, ProductQuery>();
 
             services.AddDbContext<ShopContext>(options =>
             {
