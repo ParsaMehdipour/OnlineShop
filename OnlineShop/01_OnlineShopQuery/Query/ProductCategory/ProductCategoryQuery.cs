@@ -7,8 +7,6 @@ using _01_OnlineShopQuery.Contracts.ProductCategory;
 using DiscountManagement.Infrastructure.EfCore;
 using InventoryManagement.Infrastructure.EfCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
-using ShopManagement.Domain.ProductAgg;
 using ShopManagement.Infrastructure.EfCore;
 
 namespace _01_OnlineShopQuery.Query.ProductCategory
@@ -85,6 +83,57 @@ namespace _01_OnlineShopQuery.Query.ProductCategory
 
             return categories;
 
+        }
+
+        public ProductCategoryQueryModel GetProductCategoryWithProducts(string slug)
+        {
+            var inventories = _inventoryContext.Inventory.Select(x => new { x.ProductId, x.UnitPrice }).ToList();
+            var discounts = _discountContext.CustomerDiscounts.Where(x => x.StartDate < DateTime.Now && x.EndDate > DateTime.Now)
+                .Select(x => new { x.DiscountRate, x.ProductId, x.EndDate }).ToList();
+
+            var category = _context.ProductCategories
+                .Include(x => x.Products)
+                .ThenInclude(x => x.ProductCategory)
+                .Select(x => new ProductCategoryQueryModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Slug = x.Slug,
+                    Picture = x.Picture,
+                    PictureAlt = x.PictureAlt,
+                    PictureTitle = x.PictureTitle,
+                    Keywords = x.KeyWords,
+                    Description = x.Description,
+                    MetaDescription = x.MetaDescription,
+                    Products = MapProducts(x.Products)
+                }).FirstOrDefault(x => x.Slug == slug);
+
+            foreach (var product in category.Products)
+            {
+                var productInventory = inventories.FirstOrDefault(x => x.ProductId == product.Id);
+
+                if (productInventory != null)
+                {
+                    var price = productInventory.UnitPrice;
+                    product.Price = price.ToMoney();
+
+                    var discount = discounts.FirstOrDefault(x => x.ProductId == product.Id);
+
+                    if (discount != null)
+                    {
+                        int discountRate = discount.DiscountRate;
+                        product.DiscountRate = discountRate;
+                        product.HasDiscount = discountRate > 0;
+                        product.DiscountExpirationDate = discount.EndDate.ToDiscountFormat();
+                        var discountAmount = Math.Round((price * discountRate) / 100);
+
+                        product.PriceWithDiscount = (price - discountAmount).ToMoney();
+
+                    }
+                }
+            }
+
+            return category;
         }
 
         private static List<ProductQueryModel> MapProducts(List<ShopManagement.Domain.ProductAgg.Product> products)
