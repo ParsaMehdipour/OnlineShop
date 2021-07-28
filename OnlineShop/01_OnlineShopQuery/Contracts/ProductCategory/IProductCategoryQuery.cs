@@ -6,5 +6,6 @@ namespace _01_OnlineShopQuery.Contracts.ProductCategory
     {
         List<ProductCategoryQueryModel> GetProductCategoryQueryModels();
         List<ProductCategoryQueryModel> GetProductCategoryWithProducts();
+        ProductCategoryQueryModel GetProductCategoryWithProducts(string slug);
     }
 }
