@@ -33,14 +33,15 @@ namespace _01_OnlineShopQuery.Query.ProductCategory
                 PictureAlt = p.PictureAlt,
                 PictureTitle = p.PictureTitle,
                 Slug = p.Slug
-            }).ToList();
+            }).AsNoTracking().ToList();
         }
 
         public List<ProductCategoryQueryModel> GetProductCategoryWithProducts()
         {
             var inventories = _inventoryContext.Inventory.Select(x => new {x.ProductId, x.UnitPrice}).ToList();
-            var discounts = _discountContext.CustomerDiscounts.Select(x => new {x.DiscountRate, x.ProductId}).ToList();
-
+            var discounts = _discountContext.CustomerDiscounts
+                .Where(x => x.StartDate < DateTime.Now && x.EndDate > DateTime.Now)
+                .Select(x => new { x.DiscountRate, x.ProductId }).ToList();
 
             var categories = _context.ProductCategories
                 .Include(x => x.Products)
@@ -50,7 +51,7 @@ namespace _01_OnlineShopQuery.Query.ProductCategory
                     Id = x.Id,
                     Name = x.Name,
                     Products = MapProducts(x.Products)
-                }).ToList();
+                }).AsNoTracking().ToList();
 
             foreach (var category in categories)
             {
@@ -87,9 +88,9 @@ namespace _01_OnlineShopQuery.Query.ProductCategory
 
         public ProductCategoryQueryModel GetProductCategoryWithProducts(string slug)
         {
-            var inventories = _inventoryContext.Inventory.Select(x => new { x.ProductId, x.UnitPrice }).ToList();
+            var inventories = _inventoryContext.Inventory.Select(x => new { x.ProductId, x.UnitPrice }).AsNoTracking().ToList();
             var discounts = _discountContext.CustomerDiscounts.Where(x => x.StartDate < DateTime.Now && x.EndDate > DateTime.Now)
-                .Select(x => new { x.DiscountRate, x.ProductId, x.EndDate }).ToList();
+                .Select(x => new { x.DiscountRate, x.ProductId, x.EndDate }).AsNoTracking().ToList();
 
             var category = _context.ProductCategories
                 .Include(x => x.Products)
