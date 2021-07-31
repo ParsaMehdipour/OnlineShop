@@ -35,7 +35,7 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
                 Id = x.Id,
                 Name = x.Name,
                 Description = x.Description,
-                Picture = x.Picture,
+                //Picture = x.Picture,
                 PictureAlt = x.PictureAlt,
                 PictureTitle = x.PictureTitle,
                 Slug = x.Slug,
