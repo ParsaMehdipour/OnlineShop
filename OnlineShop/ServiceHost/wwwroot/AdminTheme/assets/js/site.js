@@ -187,6 +187,7 @@ function handleAjaxCall(method, url, data) {
 jQuery.validator.addMethod("maxFileSize",
     function (value, element, params) {
         var size = element.files[0].size;
+        debugger;
         var maxSize = 3 * 1024 * 1024;
         if (size > maxSize)
             return false;
@@ -195,3 +196,39 @@ jQuery.validator.addMethod("maxFileSize",
         }
     });
 jQuery.validator.unobtrusive.adapters.addBool("maxFileSize");
+
+//jQuery.validator.addMethod("validFileFormats",
+//    function (value, element, params) {
+//        const validFormats = [".jpeg", ".jpg", ".png"];
+//        var fileFormat = element.files[0].filename.split('.').pop();
+//        debugger;
+//        if (!validFormats.includes(fileFormat))
+//            return false;
+//        else {
+//            return true;
+//        }
+//    });
+//jQuery.validator.unobtrusive.adapters.addBool("validFileFormats");
+
+//jQuery.validator.addMethod("validFileFormats",
+//    function fileValidation() {
+//        var fileInput = document.getElementById('file');
+//        var filePath = fileInput.value;
+//        var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+//        debugger;
+//        if (!allowedExtensions.exec(filePath)) {
+//            alert('Please upload file having extensions .jpeg/.jpg/.png only.');
+//            fileInput.value = '';
+//            return false;
+//        } else {
+//            //Image preview
+//            if (fileInput.files && fileInput.files[0]) {
+//                var reader = new FileReader();
+//                reader.onload = function (e) {
+//                    document.getElementById('imagePreview').innerHTML = '<img src="' + e.target.result + '"/>';
+//                };
+//                reader.readAsDataURL(fileInput.files[0]);
+//            }
+//        }
+//    });
+//jQuery.validator.unobtrusive.adapters.addBool("validFileFormats");
