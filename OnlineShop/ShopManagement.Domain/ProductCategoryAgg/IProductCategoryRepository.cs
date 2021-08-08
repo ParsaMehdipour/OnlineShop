@@ -9,6 +9,7 @@ namespace ShopManagement.Domain.ProductCategoryAgg
     public interface IProductCategoryRepository : IRepsoitory<long, ProductCategory>
     {
         List<ProductCategoryViewModel> GetProductCategories();
+        string GetSlugById(long id);
         EditProductCategory GetDetails(long id);
         List<ProductCategoryViewModel> Search(ProductCategorySearchModel searchModel);
     }
