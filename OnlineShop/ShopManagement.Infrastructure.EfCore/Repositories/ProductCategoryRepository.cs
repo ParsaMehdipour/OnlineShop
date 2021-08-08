@@ -28,6 +28,11 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
             }).ToList();
         }
 
+        public string GetSlugById(long id)
+        {
+            return _context.ProductCategories.Select(x => new {x.Id, x.Slug}).FirstOrDefault(x => x.Id == id)?.Slug;
+        }
+
         public EditProductCategory GetDetails(long id)
         {
             return _context.ProductCategories.Select(x => new EditProductCategory
