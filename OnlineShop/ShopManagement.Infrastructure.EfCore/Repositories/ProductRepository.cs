@@ -17,6 +17,11 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
             _context = context;
         }
 
+        public Product GetProductWithCategory(long id)
+        {
+            return _context.Products.Include(x => x.ProductCategory).FirstOrDefault(x => x.Id == id);
+        }
+
         public EditProduct GetDetails(long id)
         {
             return _context.Products.Select(x => new EditProduct()
@@ -24,7 +29,6 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
                 Id = x.Id,
                 Name = x.Name,
                 Code = x.Code,
-                Picture = x.Picture,
                 PictureAlt = x.PictureAlt,
                 PictureTitle = x.PictureTitle,
                 CategoryId = x.CategoryId,
