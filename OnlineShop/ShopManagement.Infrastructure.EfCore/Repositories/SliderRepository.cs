@@ -21,7 +21,6 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
             return _context.Sliders.Select(s => new EditSlider
             {
                 Id = s.Id,
-                Picture = s.Picture,
                 PictureAlt = s.PictureAlt,
                 PictureTitle = s.PictureTitle,
                 Title = s.Title,
