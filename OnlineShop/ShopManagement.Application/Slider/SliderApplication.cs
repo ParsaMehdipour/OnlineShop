@@ -8,17 +8,21 @@ namespace ShopManagement.Application.Slider
     public class SliderApplication : ISliderApplication
     {
         private readonly ISliderRepository _repository;
+        private readonly IFileUploader _fileUploader;
 
-        public SliderApplication(ISliderRepository repository)
+        public SliderApplication(ISliderRepository repository,IFileUploader fileUploader)
         {
             _repository = repository;
+            _fileUploader = fileUploader;
         }
 
         public OperationResult Create(CreateSlider command)
         {
             var result = new OperationResult();
 
-            var slider = new Domain.SliderAgg.Slider(command.Picture, command.PictureAlt, command.PictureTitle
+            var fileName = _fileUploader.Upload(command.Picture, "اسلاید");
+
+            var slider = new Domain.SliderAgg.Slider(fileName, command.PictureAlt, command.PictureTitle
                 , command.Heading, command.Title, command.Text
                 , command.BtnText, command.Link);
 
@@ -38,7 +42,9 @@ namespace ShopManagement.Application.Slider
             if (slider == null)
                 return result.Failed(ApplicationMessages.RecordNotFound);
 
-            slider.Edit(command.Picture, command.PictureAlt, command.PictureTitle
+            var fileName = _fileUploader.Upload(command.Picture, "اسلاید");
+
+            slider.Edit(fileName, command.PictureAlt, command.PictureTitle
             , command.Heading, command.Title, command.Text
             , command.BtnText, command.Link);
 
