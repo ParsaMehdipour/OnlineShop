@@ -23,11 +23,18 @@ namespace ShopManagement.Infrastructure.EfCore.Repositories
             return _context.ProductPictures.Select(p => new EditProductPicture()
             {
                 Id = p.Id,
-                Picture = p.Picture,
                 PictureAlt = p.PictureAlt,
                 PictureTitle = p.PictureTitle,
                 ProductId = p.ProductId
             }).FirstOrDefault(p => p.Id == id);
+        }
+
+        public ProductPicture GetWithProductAndCategory(long id)
+        {
+            return _context.ProductPictures
+                .Include(x => x.Product)
+                .ThenInclude(x => x.ProductCategory)
+                .FirstOrDefault(x=>x.Id == id);
         }
 
         public List<ProductPictureViewModel> Search(ProductPictureSearchModel searchModel)
