@@ -67,13 +67,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ArticleManagement", "Articl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AM.Domain", "AM.Domain", "{8E0861FD-AD70-4CB7-A830-E96EF1FCE0C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArticleManagement.Domain", "ArticleManagement.Domain\ArticleManagement.Domain.csproj", "{FD1F3D5D-F69B-4478-8C67-25B9E7359F4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArticleManagement.Domain", "ArticleManagement.Domain\ArticleManagement.Domain.csproj", "{FD1F3D5D-F69B-4478-8C67-25B9E7359F4B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AM.Application", "AM.Application", "{31B34FA7-0DD7-482B-B7FE-DCD3DDACB3FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArticleManagement.Application.Contracts", "ArticleManagement.Application.Contracts\ArticleManagement.Application.Contracts.csproj", "{DED41514-52EB-4585-B48F-3763037094AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArticleManagement.Application.Contracts", "ArticleManagement.Application.Contracts\ArticleManagement.Application.Contracts.csproj", "{DED41514-52EB-4585-B48F-3763037094AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArticleCategory.Application", "ArticleCategory.Application\ArticleCategory.Application.csproj", "{B38BDAAA-59EF-435B-AAE4-569EE8BE8C38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArticleCategory.Application", "ArticleCategory.Application\ArticleCategory.Application.csproj", "{B38BDAAA-59EF-435B-AAE4-569EE8BE8C38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AM.Infrastructure", "AM.Infrastructure", "{A0DFCDF7-942E-48DD-A9E7-8A910AC1F45E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArticleManagement.Infrastructure.EfCore", "ArticleManagement.Infrastructure.EfCore\ArticleManagement.Infrastructure.EfCore.csproj", "{0519E928-BFD5-4946-B794-3E5057128F34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +169,10 @@ Global
 		{B38BDAAA-59EF-435B-AAE4-569EE8BE8C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B38BDAAA-59EF-435B-AAE4-569EE8BE8C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B38BDAAA-59EF-435B-AAE4-569EE8BE8C38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0519E928-BFD5-4946-B794-3E5057128F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0519E928-BFD5-4946-B794-3E5057128F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0519E928-BFD5-4946-B794-3E5057128F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0519E928-BFD5-4946-B794-3E5057128F34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -199,6 +207,8 @@ Global
 		{31B34FA7-0DD7-482B-B7FE-DCD3DDACB3FF} = {27417EDC-A06D-4E3F-9D42-7A158BE98D2D}
 		{DED41514-52EB-4585-B48F-3763037094AA} = {31B34FA7-0DD7-482B-B7FE-DCD3DDACB3FF}
 		{B38BDAAA-59EF-435B-AAE4-569EE8BE8C38} = {31B34FA7-0DD7-482B-B7FE-DCD3DDACB3FF}
+		{A0DFCDF7-942E-48DD-A9E7-8A910AC1F45E} = {27417EDC-A06D-4E3F-9D42-7A158BE98D2D}
+		{0519E928-BFD5-4946-B794-3E5057128F34} = {A0DFCDF7-942E-48DD-A9E7-8A910AC1F45E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2E8D8FDE-A524-42FE-8B25-E7050EC7D799}
