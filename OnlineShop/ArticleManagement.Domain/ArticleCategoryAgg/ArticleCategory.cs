@@ -33,7 +33,8 @@ namespace ArticleManagement.Domain.ArticleCategoryAgg
         {
             Name = name;
             Description = description;
-            Picture = picture;
+            if(!string.IsNullOrWhiteSpace(picture))
+                Picture = picture;
             PictureAlt = pictureAlt;
             PictureTitle = pictureTitle;
             Slug = slug;
