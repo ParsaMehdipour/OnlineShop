@@ -9,7 +9,7 @@ namespace InventoryManagement.Infrastructure.EfCore
 
         public DbSet<Inventory> Inventory { get; set; }
 
-        public InventoryContext(DbContextOptions options) 
+        public InventoryContext(DbContextOptions<InventoryContext> options) 
             :base(options)
         {
             
