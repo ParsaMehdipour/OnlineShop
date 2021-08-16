@@ -8,5 +8,6 @@
         public string CreationDate { get; set; }
         public string Description { get; set; }
         public int ShowOrder { get; set; }
+        public int ArticlesCount { get; set; }
     }
 }
