@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using _0_Framework.Application;
+using ArticleManagement.Infrastructure.Configuration;
 using DiscountManagement.Configuration;
 using InventoryManagement.Infrastructure.Configuration;
 using ShopManagement.Configuration;
@@ -32,6 +33,8 @@ namespace ServiceHost
             DiscountManagementBootstrapper.Configure(services, Configuration.GetConnectionString("OnlineShopConnection"));
 
             InventoryManagementBootsrapper.Configure(services, Configuration.GetConnectionString("OnlineShopConnection"));
+
+            ArticleManagementBootstrapper.Configure(services, Configuration.GetConnectionString("OnlineShopConnection"));
 
             services.AddTransient<IFileUploader, FileUploader>();
 
