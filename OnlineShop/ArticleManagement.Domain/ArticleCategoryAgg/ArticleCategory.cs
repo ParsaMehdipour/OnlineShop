@@ -1,4 +1,6 @@
-﻿using _0_Framework.Domain;
+﻿using System.Collections.Generic;
+using _0_Framework.Domain;
+using ArticleManagement.Domain.ArticleAgg;
 
 namespace ArticleManagement.Domain.ArticleCategoryAgg
 {
@@ -14,6 +16,12 @@ namespace ArticleManagement.Domain.ArticleCategoryAgg
         public int ShowOrder { get; private set; }
         public string CanonicalAddress { get; private set; }
         public string Keywords { get; private set; }
+        public List<Article> Articles { get; private set; }
+
+        public ArticleCategory()
+        {
+            Articles = new List<Article>();
+        }
 
         public ArticleCategory(string name, string description, string picture, string pictureAlt, string pictureTitle, string slug, string metaDescription, int showOrder, string canonicalAddress, string keywords)
         {
