@@ -68,5 +68,10 @@ namespace ArticleManagement.Infrastructure.EFCore.Repository
 
             return query.OrderByDescending(x => x.ShowOrder).ToList();
         }
+
+        public string GetSlugWithId(long id)
+        {
+            return _context.ArticleCategories.Select(x => new {x.Id, x.Slug}).FirstOrDefault(x => x.Id == id)?.Slug;
+        }
     }
 }
