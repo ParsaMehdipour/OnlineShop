@@ -20,7 +20,7 @@
         public OperationResult Failed(string message = "عملیات با شکست مواجه شد. لطفا مجددا تلاش کنید")
         {
             IsSucceeded = false;
-            message = Message;
+            Message = message;
             return this;
         }
     }
