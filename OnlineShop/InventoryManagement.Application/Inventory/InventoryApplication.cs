@@ -27,7 +27,7 @@ namespace InventoryManagement.Application.Inventory
 
             _repository.SaveChanges();
 
-            return operationResult.Succedded();
+            return operationResult.Succeeded();
         }
 
         public OperationResult Edit(EditInventory command)
@@ -46,7 +46,7 @@ namespace InventoryManagement.Application.Inventory
 
             _repository.SaveChanges();
 
-            return opertaionResult.Succedded();
+            return opertaionResult.Succeeded();
         }
 
         public OperationResult Increase(IncreaseInventory command)
@@ -64,7 +64,7 @@ namespace InventoryManagement.Application.Inventory
 
             _repository.SaveChanges();
 
-            return operationResult.Succedded();
+            return operationResult.Succeeded();
         }
 
         public OperationResult Reduce(List<ReduceInventory> command)
@@ -84,7 +84,7 @@ namespace InventoryManagement.Application.Inventory
 
             _repository.SaveChanges();
 
-            return operationResult.Succedded();
+            return operationResult.Succeeded();
         }
 
         public OperationResult Reduce(ReduceInventory command)
@@ -102,7 +102,7 @@ namespace InventoryManagement.Application.Inventory
 
             _repository.SaveChanges();
 
-            return operationResult.Succedded();
+            return operationResult.Succeeded();
         }
 
         public List<InventoryViewModel> Search(InventorySearchModel searchModel)

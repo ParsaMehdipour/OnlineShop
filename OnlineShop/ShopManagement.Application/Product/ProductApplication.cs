@@ -43,7 +43,7 @@ namespace ShopManagement.Application.Product
 
             _repository.SaveChanges();
 
-            return result.Succedded();
+            return result.Succeeded();
         }
 
         public OperationResult Edit(EditProduct command)
@@ -71,7 +71,7 @@ namespace ShopManagement.Application.Product
 
             _repository.SaveChanges();
 
-            return result.Succedded();
+            return result.Succeeded();
         }
 
         public List<ProductViewModel> Search(ProductSearchModel searchModel)

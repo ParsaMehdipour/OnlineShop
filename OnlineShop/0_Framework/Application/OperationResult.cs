@@ -3,23 +3,23 @@
     public class OperationResult
     {
         public string Message { get; set; }
-        public bool IsSuccedded { get; set; }
+        public bool IsSucceeded { get; set; }
 
         public OperationResult()
         {
-            IsSuccedded = false;
+            IsSucceeded = false;
         }
 
-        public OperationResult Succedded(string message = "عملیت با موفقیت انجام شد")
+        public OperationResult Succeeded(string message = "عملیات با موفقیت انجام شد")
         {
-            IsSuccedded = true;
+            IsSucceeded = true;
             Message = message;
             return this;
         }
 
         public OperationResult Failed(string message = "عملیات با شکست مواجه شد. لطفا مجددا تلاش کنید")
         {
-            IsSuccedded = false;
+            IsSucceeded = false;
             message = Message;
             return this;
         }

@@ -34,7 +34,7 @@ namespace ShopManagement.Application.ProductCategory
 
             _repository.SaveChanges();
 
-            return result.Succedded();
+            return result.Succeeded();
         }
 
         public OperationResult Edit(EditProductCategory command)
@@ -59,7 +59,7 @@ namespace ShopManagement.Application.ProductCategory
 
             _repository.SaveChanges();
 
-            return result.Succedded();
+            return result.Succeeded();
         }
 
         public EditProductCategory GetDetails(long id)

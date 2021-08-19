@@ -64,7 +64,7 @@ namespace ServiceHost.Areas.AdminPanel.Pages.Discounts.ColleagueDiscounts
         public IActionResult OnGetRemove(long id)
         {
             var result = _application.Remove(id);
-            if (result.IsSuccedded)
+            if (result.IsSucceeded)
                 return RedirectToPage("./Index");
 
             Message = result.Message;
@@ -74,7 +74,7 @@ namespace ServiceHost.Areas.AdminPanel.Pages.Discounts.ColleagueDiscounts
         public IActionResult OnGetRestore(long id)
         {
             var result = _application.Restore(id);
-            if (result.IsSuccedded)
+            if (result.IsSucceeded)
                 return RedirectToPage("./Index");
 
             Message = result.Message;

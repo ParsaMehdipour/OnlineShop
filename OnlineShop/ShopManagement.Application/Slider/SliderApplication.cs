@@ -30,7 +30,7 @@ namespace ShopManagement.Application.Slider
 
             _repository.SaveChanges();
 
-            return result.Succedded();
+            return result.Succeeded();
         }
 
         public OperationResult Edit(EditSlider command)
@@ -50,7 +50,7 @@ namespace ShopManagement.Application.Slider
 
             _repository.SaveChanges();
 
-            return result.Succedded();
+            return result.Succeeded();
         }
 
         public OperationResult Remove(long id)
@@ -66,7 +66,7 @@ namespace ShopManagement.Application.Slider
 
             _repository.SaveChanges();
 
-            return result.Succedded();
+            return result.Succeeded();
         }
 
         public OperationResult Restore(long id)
@@ -82,7 +82,7 @@ namespace ShopManagement.Application.Slider
 
             _repository.SaveChanges();
 
-            return result.Succedded();
+            return result.Succeeded();
         }
 
         public EditSlider GetDetails(long id)

@@ -33,7 +33,7 @@ namespace DiscountManagement.Application.CustomerDiscount
 
             _repository.SaveChanges();
 
-            return operationResult.Succedded();
+            return operationResult.Succeeded();
 
         }
 
@@ -56,7 +56,7 @@ namespace DiscountManagement.Application.CustomerDiscount
 
             _repository.SaveChanges();
 
-            return operationResult.Succedded();
+            return operationResult.Succeeded();
         }
 
         public List<CustomerDiscountViewModel> Search(CustomerDiscountSearchModel searchModel)

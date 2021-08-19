@@ -45,7 +45,7 @@ namespace ArticleCategory.Application.Article
             _repository.Create(article);
             _repository.SaveChanges();
 
-            return operationResult.Succedded();
+            return operationResult.Succeeded();
         }
 
         public OperationResult Edit(EditArticle command)
@@ -73,7 +73,7 @@ namespace ArticleCategory.Application.Article
 
             _repository.SaveChanges();
 
-            return operationResult.Succedded();
+            return operationResult.Succeeded();
         }
 
         public List<ArticleViewModel> Search(ArticleSearchModel searchModel)

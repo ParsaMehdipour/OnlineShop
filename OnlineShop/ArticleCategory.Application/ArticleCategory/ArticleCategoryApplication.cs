@@ -35,7 +35,7 @@ namespace ArticleCategory.Application.ArticleCategory
             _repository.Create(articleCategory);
             _repository.SaveChanges();
 
-            return operationResult.Succedded();
+            return operationResult.Succeeded();
         }
 
         public OperationResult Edit(EditArticleCategory command)
@@ -60,7 +60,7 @@ namespace ArticleCategory.Application.ArticleCategory
 
             _repository.SaveChanges();
 
-            return operationResult.Succedded();
+            return operationResult.Succeeded();
         }
 
         public EditArticleCategory GetDetails(long id)
