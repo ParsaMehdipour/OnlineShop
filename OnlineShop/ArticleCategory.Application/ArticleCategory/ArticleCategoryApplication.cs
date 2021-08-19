@@ -72,5 +72,10 @@ namespace ArticleCategory.Application.ArticleCategory
         {
             return _repository.Search(searchModel);
         }
+
+        public List<ArticleCategoryViewModel> GetArticleCategories()
+        {
+            return _repository.GetArticleCategories();
+        }
     }
 }
