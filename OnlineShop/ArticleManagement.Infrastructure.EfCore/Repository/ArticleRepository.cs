@@ -46,6 +46,7 @@ namespace ArticleManagement.Infrastructure.EfCore.Repository
                 Category = x.ArticleCategory.Name,
                 Picture = x.Picture,
                 PublishDate = x.PublishDate.ToFarsi(),
+                CreationDate = x.CreationDate.ToFarsi(),
                 ShortDescription = x.ShortDescription,
                 Title = x.Title
             });
