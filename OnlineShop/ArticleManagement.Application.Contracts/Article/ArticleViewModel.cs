@@ -9,6 +9,7 @@
         public string PublishDate { get; set; }
         public long CategoryId { get; set; }
         public string Category { get; set; }
+        public string CreationDate { get; set; }
 
     }
 }
