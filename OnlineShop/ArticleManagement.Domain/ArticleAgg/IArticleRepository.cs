@@ -8,6 +8,7 @@ namespace ArticleManagement.Domain.ArticleAgg
     public interface IArticleRepository : IRepsoitory<long, Article>
     {
         EditArticle GetDetails(long id);
+        Article GetWithArticleCategory(long id);
         List<ArticleViewModel> Search(ArticleSearchModel searchModel);
     }
 }
