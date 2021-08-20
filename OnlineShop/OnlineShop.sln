@@ -79,7 +79,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AM.Infrastructure", "AM.Inf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArticleManagement.Infrastructure.EfCore", "ArticleManagement.Infrastructure.EfCore\ArticleManagement.Infrastructure.EfCore.csproj", "{0519E928-BFD5-4946-B794-3E5057128F34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArticleManagement.Infrastructure.Configuration", "ArticleManagement.Infrastructure.Configuration\ArticleManagement.Infrastructure.Configuration.csproj", "{0B89CA23-233F-4E6B-8BAF-E0234CDCFCC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArticleManagement.Infrastructure.Configuration", "ArticleManagement.Infrastructure.Configuration\ArticleManagement.Infrastructure.Configuration.csproj", "{0B89CA23-233F-4E6B-8BAF-E0234CDCFCC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
