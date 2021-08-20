@@ -29,11 +29,10 @@ namespace ArticleCategory.Application.Article
             if (_repository.Exists(x => x.Title == command.Title))
                 return operationResult.Failed(ApplicationMessages.DuplicatedRecord);
 
-            var categorySlug = _articleCategoryRepository.GetSlugWithId(command.CategoryId);
-
-            var path = $"{categorySlug}/{command.Slug}";
+            var slug = command.Slug.Slugify();
+            var categorySlug = _articleCategoryRepository.GetSlugById(command.CategoryId);
+            var path = $"{categorySlug}/{slug}";
             var fileName = _fileUploader.Upload(command.Picture, path);
-
             var publishDate = command.PublishDate.ToGeorgianDateTime();
 
             var article = new ArticleManagement.Domain.ArticleAgg.Article(command.Title, command.Title,
@@ -50,30 +49,27 @@ namespace ArticleCategory.Application.Article
 
         public OperationResult Edit(EditArticle command)
         {
-            var operationResult = new OperationResult();
+            var operation = new OperationResult();
+            var article = _repository.GetWithArticleCategory(command.Id);
 
-            var article = _repository.GetById(command.Id);
-
-            if (article is null)
-                return operationResult.Failed(ApplicationMessages.RecordNotFound);
+            if (article == null)
+                return operation.Failed(ApplicationMessages.RecordNotFound);
 
             if (_repository.Exists(x => x.Title == command.Title && x.Id != command.Id))
-                return operationResult.Failed(ApplicationMessages.DuplicatedRecord);
+                return operation.Failed(ApplicationMessages.DuplicatedRecord);
 
-            var path = $"{article.ArticleCategory.Slug}/{command.Slug}";
+            var slug = command.Slug.Slugify();
+            var path = $"{article.ArticleCategory.Slug}/{slug}";
             var fileName = _fileUploader.Upload(command.Picture, path);
-
             var publishDate = command.PublishDate.ToGeorgianDateTime();
 
-            article.Edit(command.Title, command.Title,
-                command.ShortDescription
+            article.Edit(command.Title, command.Description, command.ShortDescription
                 , fileName, command.PictureAlt, command.PictureTitle
-                , command.Slug, command.Keywords, command.MetaDescription
-                , command.CanonicalAddress, publishDate, command.CategoryId);
+                , slug, command.Keywords, command.MetaDescription
+                , command.CanonicalAddress,publishDate,command.CategoryId);
 
             _repository.SaveChanges();
-
-            return operationResult.Succeeded();
+            return operation.Succeeded();
         }
 
         public List<ArticleViewModel> Search(ArticleSearchModel searchModel)
