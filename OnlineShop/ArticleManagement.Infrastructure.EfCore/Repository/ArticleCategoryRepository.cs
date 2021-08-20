@@ -43,7 +43,7 @@ namespace ArticleManagement.Infrastructure.EFCore.Repository
             }).FirstOrDefault(x => x.Id == id);
         }
 
-        public string GetSlugBy(long id)
+        public string GetSlugById(long id)
         {
             return _context.ArticleCategories.Select(x => new { x.Id, x.Slug })
                 .FirstOrDefault(x => x.Id == id)
@@ -67,11 +67,6 @@ namespace ArticleManagement.Infrastructure.EFCore.Repository
                 query = query.Where(x => x.Name.Contains(searchModel.Name));
 
             return query.OrderByDescending(x => x.ShowOrder).ToList();
-        }
-
-        public string GetSlugWithId(long id)
-        {
-            return _context.ArticleCategories.Select(x => new {x.Id, x.Slug}).FirstOrDefault(x => x.Id == id)?.Slug;
         }
     }
 }
