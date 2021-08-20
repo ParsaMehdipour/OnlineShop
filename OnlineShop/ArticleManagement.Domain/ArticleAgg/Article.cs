@@ -41,7 +41,10 @@ namespace ArticleManagement.Domain.ArticleAgg
             Title = title;
             Description = description;
             ShortDescription = shortDescription;
-            Picture = picture;
+
+            if(string.IsNullOrWhiteSpace(picture) is not true)
+                Picture = picture;
+
             PictureAlt = pictureAlt;
             PictureTitle = pictureTitle;
             Slug = slug;
