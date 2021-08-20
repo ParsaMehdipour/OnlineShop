@@ -9,6 +9,6 @@ namespace ArticleManagement.Domain.ArticleCategoryAgg
         EditArticleCategory GetDetails(long id);
         List<ArticleCategoryViewModel> Search(ArticleCategorySearchModel searchModel);
         List<ArticleCategoryViewModel> GetArticleCategories();
-        string GetSlugWithId(long id);
+        string GetSlugById(long id);
     }
 }
