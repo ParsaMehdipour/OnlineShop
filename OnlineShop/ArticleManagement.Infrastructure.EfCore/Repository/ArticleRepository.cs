@@ -5,6 +5,7 @@ using _0_Framework.Application;
 using _0_Framework.Infrastructure;
 using ArticleManagement.Application.Contracts.Article;
 using ArticleManagement.Domain.ArticleAgg;
+using Microsoft.EntityFrameworkCore;
 
 namespace ArticleManagement.Infrastructure.EfCore.Repository
 {
@@ -35,6 +36,12 @@ namespace ArticleManagement.Infrastructure.EfCore.Repository
                 Slug = x.Slug,
                 Title = x.Title
             }).FirstOrDefault(x => x.Id == id);
+        }
+
+        public Article GetWithArticleCategory(long id)
+        {
+            return _context.Articles
+                .Include(x => x.ArticleCategory).FirstOrDefault(x => x.Id == id);
         }
 
         public List<ArticleViewModel> Search(ArticleSearchModel searchModel)
