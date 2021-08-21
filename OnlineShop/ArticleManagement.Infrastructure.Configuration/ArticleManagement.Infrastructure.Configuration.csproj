@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\01_OnlineShopQuery\01_OnlineShopQuery.csproj" />
     <ProjectReference Include="..\ArticleCategory.Application\ArticleCategory.Application.csproj" />
     <ProjectReference Include="..\ArticleManagement.Domain\ArticleManagement.Domain.csproj" />
     <ProjectReference Include="..\ArticleManagement.Infrastructure.EfCore\ArticleManagement.Infrastructure.EfCore.csproj" />
