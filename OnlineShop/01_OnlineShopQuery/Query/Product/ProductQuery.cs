@@ -6,6 +6,7 @@ using _01_OnlineShopQuery.Contracts.Product;
 using DiscountManagement.Infrastructure.EfCore;
 using InventoryManagement.Infrastructure.EfCore;
 using Microsoft.EntityFrameworkCore;
+using ShopManagement.Domain.ProductPictureAgg;
 using ShopManagement.Infrastructure.EfCore;
 
 namespace _01_OnlineShopQuery.Query.Product
@@ -32,6 +33,7 @@ namespace _01_OnlineShopQuery.Query.Product
 
             var product = _shopContext.Products
                 .Include(x => x.ProductCategory)
+                .Include(x=>x.ProductPictures)
                 .Select(x => new ProductQueryModel
                 {
                     Id = x.Id,
@@ -47,6 +49,7 @@ namespace _01_OnlineShopQuery.Query.Product
                     Keywords = x.Keywords,
                     MetaDescription = x.MetaDescription,
                     ShortDescription = x.ShortDescription,
+                    ProductPictures = MapToProductPictures(x.ProductPictures)
                 }).AsNoTracking().FirstOrDefault(x => x.Slug == slug);
 
             if (product == null)
@@ -81,6 +84,18 @@ namespace _01_OnlineShopQuery.Query.Product
 
 
             return product;
+        }
+
+        private static List<ProductPictureQueryModel> MapToProductPictures(List<ProductPicture> ProductPictures)
+        {
+            return ProductPictures.Select(x => new ProductPictureQueryModel
+            {
+                ProductId = x.ProductId,
+                Picture = x.Picture,
+                PictureAlt = x.PictureAlt,
+                PictureTitle = x.PictureTitle,
+                IsRemoved = x.IsRemoved
+            }).Where(x=>x.IsRemoved == false).ToList();
         }
 
         public List<ProductQueryModel> GetLatestProducts()
