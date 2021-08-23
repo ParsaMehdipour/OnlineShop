@@ -1,4 +1,6 @@
-﻿namespace _01_OnlineShopQuery.Contracts.Product
+﻿using System.Collections.Generic;
+
+namespace _01_OnlineShopQuery.Contracts.Product
 {
     public class ProductQueryModel
     {
@@ -22,5 +24,6 @@
         public string Keywords { get; set; }
         public string MetaDescription { get; set; }
         public bool IsInStock { get; set; }
+        public List<ProductPictureQueryModel> ProductPictures { get; set; }
     }
 }
