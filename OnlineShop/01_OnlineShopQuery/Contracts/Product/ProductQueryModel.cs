@@ -25,5 +25,6 @@ namespace _01_OnlineShopQuery.Contracts.Product
         public string MetaDescription { get; set; }
         public bool IsInStock { get; set; }
         public List<ProductPictureQueryModel> ProductPictures { get; set; }
+        public List<CommentQueryModel> Comments { get; set; }
     }
 }
