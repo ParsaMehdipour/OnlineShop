@@ -1,4 +1,5 @@
 ﻿using _01_OnlineShopQuery.Contracts.Article;
+using _01_OnlineShopQuery.Contracts.ArticleCategory;
 using _01_OnlineShopQuery.Query.Article;
 using ArticleCategory.Application.Article;
 using ArticleCategory.Application.ArticleCategory;
@@ -25,6 +26,7 @@ namespace ArticleManagement.Infrastructure.Configuration
             services.AddTransient<IArticleApplication, ArticleApplication>();
 
             services.AddTransient<IArticleQuery, ArticleQuery>();
+            services.AddTransient<IArticleCategoryQuery, ArticleCategoryQuery>();
 
             services.AddDbContext<ArticleContext>(options =>
             {
