@@ -29,12 +29,13 @@ namespace _01_OnlineShopQuery.Query.Article
                     PictureTitle = x.PictureTitle,
                     PublishDate = x.PublishDate.ToFarsi(),
                     ShortDescription = x.ShortDescription,
+                    CategorySlug = x.ArticleCategory.Slug
                 }).ToList();
         }
 
         public ArticleQueryModel GetArticle(string slug)
         {
-            return _context.Articles
+            var article = _context.Articles
                 .Include(x => x.ArticleCategory)
                 .Select(x => new ArticleQueryModel
                 {
@@ -51,8 +52,14 @@ namespace _01_OnlineShopQuery.Query.Article
                     ShortDescription = x.ShortDescription,
                     MetaDescription = x.MetaDescription,
                     Keywords = x.Keywords,
-                    CanonicalAddress = x.CanonicalAddress
+                    CanonicalAddress = x.CanonicalAddress,
+                    CategorySlug = x.ArticleCategory.Slug
                 }).FirstOrDefault(x => x.Slug == slug);
+
+            if (!string.IsNullOrWhiteSpace(article.Keywords))
+                article.KeywordsList = article.Keywords.Split(",").ToList();
+
+            return article;
         }
     }
 }
