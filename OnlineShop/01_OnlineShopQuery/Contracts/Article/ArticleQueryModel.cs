@@ -1,4 +1,6 @@
-﻿namespace _01_OnlineShopQuery.Contracts.Article
+﻿using System.Collections.Generic;
+
+namespace _01_OnlineShopQuery.Contracts.Article
 {
     public class ArticleQueryModel
     {
@@ -16,5 +18,7 @@
         public string PublishDate { get; set; }
         public long CategoryId { get; set; }
         public string ArticleCategory { get; set; }
+        public string CategorySlug { get; set; }
+        public List<string> KeywordsList { get; set; }
     }
 }
