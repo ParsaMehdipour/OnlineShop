@@ -54,7 +54,7 @@ namespace ArticleManagement.Infrastructure.EfCore.Repository
                 Picture = x.Picture,
                 PublishDate = x.PublishDate.ToFarsi(),
                 CreationDate = x.CreationDate.ToFarsi(),
-                ShortDescription = x.ShortDescription,
+                ShortDescription = x.ShortDescription.Substring(0, Math.Min(x.Description.Length, 50)) + "...",
                 Title = x.Title
             });
 
