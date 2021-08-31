@@ -1,4 +1,5 @@
 ﻿@model _01_LampshadeQuery.MenuModel
+@*@inject _0_Framework.Application.IAuthHelper AuthHelper*@
 
 <div class="header-area header-sticky">
     <div class="container">
@@ -30,12 +31,12 @@
                                 <li class="menu-item-has-children">
                                     <a>مقالات</a>
                                     <ul class="sub-menu">
-                                        @*@foreach (var category in Model.ArticleCategories)
+                                        @foreach (var category in Model.ArticleCategories)
                                         {
                                             <li>
                                                 <a asp-page="./ArticleCategory" asp-route-id="@category.Slug">@category.Name</a>
                                             </li>
-                                        }*@
+                                        }
                                     </ul>
                                 </li>
                                 <li>
@@ -43,8 +44,14 @@
                                 </li>
 
                                 <li>
-                                    <a asp-page="/Account">ورود / ثبت نام</a>
+                                    <a asp-page="/Account" asp-page-handler="Logout">خروج</a>
                                 </li>
+
+
+                                <li>
+                                    <a asp-page="/Account">وورد / ثبت نام</a>
+                                </li>
+
                             </ul>
                         </nav>
                     </div>
