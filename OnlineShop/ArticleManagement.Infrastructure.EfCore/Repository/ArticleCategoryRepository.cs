@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using _0_Framework.Application;
 using _0_Framework.Infrastructure;
 using ArticleManagement.Application.Contracts.ArticleCategory;
 using ArticleManagement.Domain.ArticleCategoryAgg;
 using ArticleManagement.Infrastructure.EfCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace ArticleManagement.Infrastructure.EFCore.Repository
 {
@@ -53,14 +55,16 @@ namespace ArticleManagement.Infrastructure.EFCore.Repository
         public List<ArticleCategoryViewModel> Search(ArticleCategorySearchModel searchModel)
         {
             var query = _context.ArticleCategories
+                .Include(x=>x.Articles)
                 .Select(x => new ArticleCategoryViewModel
                 {
                     Id = x.Id,
-                    Description = x.Description,
+                    Description = x.Description.Substring(0,Math.Min(x.Description.Length,50)) + "...",
                     Name = x.Name,
                     Picture = x.Picture,
                     ShowOrder = x.ShowOrder,
                     CreationDate = x.CreationDate.ToFarsi(),
+                    ArticlesCount = x.Articles.Count
                 });
 
             if (!string.IsNullOrWhiteSpace(searchModel.Name))
