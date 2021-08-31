@@ -1,4 +1,7 @@
-﻿namespace _01_OnlineShopQuery.Contracts.ArticleCategory
+﻿using System.Collections.Generic;
+using _01_OnlineShopQuery.Contracts.Article;
+
+namespace _01_OnlineShopQuery.Contracts.ArticleCategory
 {
     public class ArticleCategoryQueryModel
     {
@@ -13,5 +16,7 @@
         public int ArticlesCount { get; set; }
         public string CanonicalAddress { get; set; }
         public string Keywords { get; set; }
+        public List<string> KeywordsList { get; set; }
+        public List<ArticleQueryModel> Articles { get; set; }
     }
 }
