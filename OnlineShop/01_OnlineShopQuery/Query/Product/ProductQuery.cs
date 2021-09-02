@@ -6,7 +6,6 @@ using _01_OnlineShopQuery.Contracts.Product;
 using DiscountManagement.Infrastructure.EfCore;
 using InventoryManagement.Infrastructure.EfCore;
 using Microsoft.EntityFrameworkCore;
-using ShopManagement.Domain.CommentAgg;
 using ShopManagement.Domain.ProductPictureAgg;
 using ShopManagement.Infrastructure.EfCore;
 
@@ -35,7 +34,6 @@ namespace _01_OnlineShopQuery.Query.Product
             var product = _shopContext.Products
                 .Include(x => x.ProductCategory)
                 .Include(x => x.ProductPictures)
-                .Include(x => x.Comments)
                 .Select(x => new ProductQueryModel
                 {
                     Id = x.Id,
@@ -52,7 +50,6 @@ namespace _01_OnlineShopQuery.Query.Product
                     MetaDescription = x.MetaDescription,
                     ShortDescription = x.ShortDescription,
                     ProductPictures = MapToProductPictures(x.ProductPictures),
-                    Comments = MapToProductComments(x.Comments)
                 }).AsNoTracking().FirstOrDefault(x => x.Slug == slug);
 
             if (product == null)
@@ -89,16 +86,16 @@ namespace _01_OnlineShopQuery.Query.Product
             return product;
         }
 
-        private static List<CommentQueryModel> MapToProductComments(List<Comment> Comments)
-        {
-            return Comments.Where(x => x.IsConfirmed && !x.IsCanceled)
-                .Select(x => new CommentQueryModel
-                {
-                    Id = x.Id,
-                    Message = x.Message,
-                    Name = x.Name
-                }).OrderByDescending(x => x.Id).ToList();
-        }
+        //private static List<CommentQueryModel> MapToProductComments(List<Comment> Comments)
+        //{
+        //    return Comments.Where(x => x.IsConfirmed && !x.IsCanceled)
+        //        .Select(x => new CommentQueryModel
+        //        {
+        //            Id = x.Id,
+        //            Message = x.Message,
+        //            Name = x.Name
+        //        }).OrderByDescending(x => x.Id).ToList();
+        //}
 
         private static List<ProductPictureQueryModel> MapToProductPictures(List<ProductPicture> ProductPictures)
         {
