@@ -5,8 +5,6 @@ using _01_OnlineShopQuery.Query.Product;
 using _01_OnlineShopQuery.Query.ProductCategory;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using ShopManagement.Application.Comment;
-using ShopManagement.Application.Contracts.Comment;
 using ShopManagement.Application.Contracts.Product;
 using ShopManagement.Application.Contracts.ProductCategory;
 using ShopManagement.Application.Contracts.ProductPicture;
@@ -15,7 +13,6 @@ using ShopManagement.Application.Product;
 using ShopManagement.Application.ProductCategory;
 using ShopManagement.Application.ProductPicture;
 using ShopManagement.Application.Slider;
-using ShopManagement.Domain.CommentAgg;
 using ShopManagement.Domain.ProductAgg;
 using ShopManagement.Domain.ProductCategoryAgg;
 using ShopManagement.Domain.ProductPictureAgg;
@@ -33,13 +30,11 @@ namespace ShopManagement.Configuration
             services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
             services.AddTransient<IProductPictureRepository, ProductPictureRepository>();
             services.AddTransient<ISliderRepository, SliderRepository>();
-            services.AddTransient<ICommentRepository, CommentRepository>();
 
             services.AddTransient<IProductApplication, ProductApplication>();
             services.AddTransient<IProductCategoryApplication, ProductCategoryApplication>();
             services.AddTransient<IProductPictureApplication, ProductPictureApplication>();
             services.AddTransient<ISliderApplication, SliderApplication>();
-            services.AddTransient<ICommentApplication, CommentApplication>();
 
             services.AddTransient<ISlideQuery, SlideQuery>();
             services.AddTransient<IProductCategoryQuery, ProductCategoryQuery>();
