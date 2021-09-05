@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using CommentManagement.Application.Contracts.Comment;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using ShopManagement.Application.Contracts.Product;
 
 namespace ServiceHost.Areas.AdminPanel.Pages.Comments
 {

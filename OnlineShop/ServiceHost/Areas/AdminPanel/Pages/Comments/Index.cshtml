@@ -1,6 +1,6 @@
 ﻿@page
 @using Microsoft.CodeAnalysis.CSharp.Syntax
-@model ServiceHost.Areas.AdminPanel.Pages.Shop.Comments.IndexModel
+@model ServiceHost.Areas.AdminPanel.Pages.Comments.IndexModel
 @{
 }
 
@@ -29,7 +29,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>محصول</th>
+                                    @*<th>محصول</th>*@
                                     <th>نام</th>
                                     <th>ایمیل</th>
                                     <th>پیام</th>
@@ -42,7 +42,7 @@
                                 {
                                     <tr>
                                         <td>@item.Id</td>
-                                        <td>@item.OwnerName</td>
+                                        @*<td>@item.OwnerName</td>*@
                                         <td>@item.Name</td>
                                         <td>@item.Email</td>
                                         <td>@item.Message</td>
