@@ -352,3 +352,4 @@ MigrationBackup/
 /OnlineShop/DiscountManagement.Infrastructure.EfCore/Migrations
 /OnlineShop/InventoryManagement.Infrastructure.EfCore/Migrations
 /OnlineShop/ArticleManagement.Infrastructure.EfCore/Migrations
+/OnlineShop/CommentManagement.Infrasructure.EfCore/Migrations
