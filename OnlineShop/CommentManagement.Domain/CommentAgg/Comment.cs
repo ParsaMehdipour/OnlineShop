@@ -17,8 +17,7 @@ namespace CommentManagement.Domain.CommentAgg
 
         public long ParentId { get; set; }
         public Comment Parent { get; set; }
-        public List<Comment> Children { get; set; }
-        
+
 
         public Comment(string name, string email, string message, long ownerRecordId,int type,string website)
         {
