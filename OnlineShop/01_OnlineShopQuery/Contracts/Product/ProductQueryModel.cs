@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _01_OnlineShopQuery.Contracts.Comment;
 
 namespace _01_OnlineShopQuery.Contracts.Product
 {
