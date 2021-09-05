@@ -1,5 +1,6 @@
 using _01_OnlineShopQuery.Contracts.Product;
 using CommentManagement.Application.Contracts.Comment;
+using CommentManagement.Infrastructure.EfCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -24,6 +25,8 @@ namespace ServiceHost.Pages
 
         public IActionResult OnPost(CreateComment command,string productSlug)
         {
+            command.Type = CommentType.Product;
+
             _commentApplication.Create(command);
 
             return new RedirectToPageResult("/Product", new {Id = productSlug});
