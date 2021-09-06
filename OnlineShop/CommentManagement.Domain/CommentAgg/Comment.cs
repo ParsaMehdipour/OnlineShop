@@ -19,7 +19,7 @@ namespace CommentManagement.Domain.CommentAgg
         public Comment Parent { get; set; }
 
 
-        public Comment(string name, string email, string message, long ownerRecordId,int type,string website)
+        public Comment(string name, string email, string message, long ownerRecordId,int type,string website,long parentId)
         {
             Name = name;
             Email = email;
@@ -27,6 +27,7 @@ namespace CommentManagement.Domain.CommentAgg
             Website = website;
             OwnerRecordId = ownerRecordId;
             Type = type;
+            ParentId = parentId;
         }
 
         public void Confirm()
