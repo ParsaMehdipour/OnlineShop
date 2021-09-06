@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _01_OnlineShopQuery.Contracts.Comment;
 
 namespace _01_OnlineShopQuery.Contracts.Article
 {
@@ -20,5 +21,6 @@ namespace _01_OnlineShopQuery.Contracts.Article
         public string ArticleCategory { get; set; }
         public string CategorySlug { get; set; }
         public List<string> KeywordsList { get; set; }
+        public List<CommentQueryModel> Comments { get; set; }
     }
 }
